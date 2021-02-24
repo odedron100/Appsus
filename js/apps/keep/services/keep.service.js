@@ -80,19 +80,33 @@ function createNewNote(note) {
 
 function getEmptyNote(note) {
   console.log('note.title', note.title);
-  return {
-    title: note.title,
-    type: note.type,
-    info: {
-      url: note.imgURL,
-      text: note.text,
-      todos: note.todos,
-    },
-    style: {
-      backgroundColor: note.color,
+  if (note.type === 'text') {
+    return {
+      title: note.title,
+      type: note.type,
+      info: {
+        url: note.imgURL,
+        text: note.text,
+        todos: note.todos,
+        audio: note.audio
+      },
+      style: {
+        backgroundColor: note.color,
+      }
     }
   }
 }
+
+
+// title: note.title,
+//   type: note.type,
+//     info: {
+//   url: note.imgURL,
+//     text: note.text,
+//       todos: note.todos,
+//       },
+// style: {
+//   backgroundColor: note.color,
 
 // function getNextBookId(bookId) {
 //   let books = utilService.loadFromStorage(BOOKS_KEY);
