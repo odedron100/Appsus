@@ -1,14 +1,13 @@
-// import { bookService } from '../services/book-service.js';
-// import bookFilter from '../cmps/book-filter.cmp.js';
-// import bookList from '../cmps/book-list.cmp.js';
-// import bookAdd from '../pages/book-add.cmp.js';
-// import bookDetails from '../pages/book-details.cmp.js';
+// import { emailService } from '../services/email.service.js';
+import emailMenu from '../cmps/email-menu.cmp.js';
+import emailList from '../cmps/email-list.cmp.js';
 
 export default {
     template: `
-        <section class="email-app">
-        <h1>EMail App </h1>
-        </section>
+         <section class="email-app main-container">
+            <email-menu />
+            <email-list />
+         </section>
     `,
     data() {
         return {
@@ -24,7 +23,8 @@ export default {
     created() {
     },
     components: {
-
+        emailMenu,
+        emailList
     }
 }
 

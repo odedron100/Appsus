@@ -4,6 +4,9 @@ export default {
         <div class="logo">
            <h1>Appsus</h1>
        </div>
+       <div class="serach-filter">
+         
+       </div>
        <nav>
            <router-link active-class="active-link" to="/" exact>Home</router-link>
            <router-link to="/email">Email</router-link> 

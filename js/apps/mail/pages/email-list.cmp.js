@@ -1,4 +1,3 @@
-import emailPreview from './email.preview.cmp.js';
 
 export default {
     template: `
