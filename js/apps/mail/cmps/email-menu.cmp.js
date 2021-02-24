@@ -1,8 +1,11 @@
+import emailCompose from './email-compose.cmp.js';
+
 export default {
-    template: `
+  template: `
         <aside class="main-menu">
             <div class="new-email">
-              <button class="new-email-btn"><span><i class="fas fa-plus"></i></span>Compose</button>
+              <button @click="showCompose" class="new-email-btn"><span><i class="fas fa-plus"></i></span>Compose</button>
+              <email-compose v-if="compose"/>
             </div>
             <div class="inbox">
               <span><i class="fas fa-inbox"></i></span><span>Inbox</span>
@@ -18,19 +21,22 @@ export default {
             </div>
         </aside>
     `,
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    computed: {
-
-    },
-    created() {
-    },
-    components: {
+  data() {
+    return {
+      compose: false,
     }
+  },
+  methods: {
+    showCompose() {
+      this.compose = !this.compose;
+    }
+  },
+  computed: {
+
+  },
+  created() {
+  },
+  components: {
+    emailCompose
+  }
 }
