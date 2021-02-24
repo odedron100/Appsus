@@ -14,7 +14,15 @@
 .list-item {
     padding: 0 2rem 0 1rem;
     display: flex;
+    flex-direction: column;
+}
+
+.email-short{
+    padding: 0 2rem 0 1rem;
+    display: flex;
     justify-content: space-between;
+    border-top: 1px solid lightgray;
+    cursor: pointer;
 }
 
 .details-sent{
@@ -29,5 +37,9 @@
 }
 
 .details-sent .desc-sent{
-    color: gray;
+    color: black;
+}
+
+.read{
+    background-color: grey;
 }
