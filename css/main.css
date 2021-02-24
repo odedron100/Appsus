@@ -1,5 +1,5 @@
-@import "../js/apps/mail/css/mail-app.css"; 
-@import "../js/apps/keep/css/keep-app.css";
+@import "/css/apps/mail/pages/email-app.css"; 
+@import "/css/apps/keep/pages/keep-app.css";
 
 *{
   box-sizing: border-box;
