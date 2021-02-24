@@ -4,7 +4,7 @@ export default {
   template: `
         <aside class="main-menu">
             <div class="new-email">
-              <button @click="showCompose" class="new-email-btn"><span><i class="fas fa-plus"></i></span>Compose</button>
+              <button @click="showCompose" class="new-email-btn"><span><i class="fas fa-plus"></i></span>  New Email</button>
               <email-compose v-if="compose" :compose="compose"  @close="closeCompose"/>
             </div>
             <div class="inbox" @click="switchMode('inbox')">
@@ -16,7 +16,7 @@ export default {
             <div class="sent-email" @click="switchMode('sent')" >
               <span><i class="fas fa-share-square"></i></span><span>Sent Mail</span>
             </div>
-            <div class="inbox" @click="switchMode('draft')" >
+            <div class="drafftes" @click="switchMode('draft')" >
               <span><i class="fab fa-firstdraft"></i></span><span>Drafts</span>
             </div>
         </aside>
