@@ -23,7 +23,7 @@
 }
 
 .note-input{
-  width: 70%;
+  width: 50%;
   height: 32px;
   border-left: none;
   text-align: center;
@@ -39,6 +39,14 @@
   background-color: white;
   border-bottom: 2px solid black;
   border-top: 2px solid black;
+}
+
+.notes-types .type{
+  padding-left: 7px;
+}
+
+.note-audio{
+  border-left: 2px solid black;
 }
 
 .title-input{
