@@ -1,12 +1,14 @@
 @import "../cmps/email-compose.css";
 @import "../cmps/email-list.css";
 @import "../cmps/email-menu.css";
+@import "../cmps/email-preview.css";
+
 
 /* MAIN APP */
 
 .email-app{
     display: flex;
     height: 100vh;
-    background-color: whitesmoke;
+    background-color: white;
 }
 

@@ -13,9 +13,21 @@ const routes = [
         component: homePage,
     },
     {
-        path: '/email',
+        path: '/email/inbox',
         component: emailApp
     },
+    // {
+    //     path: '/email/starred',
+    //     component: starredPage
+    // },
+    // {
+    //     path: '/email/sent',
+    //     component: sentPage
+    // },
+    // {
+    //     path: '/email/drafts',
+    //     component: draftsPage
+    // },
     {
         path: '/keep/',
         component: keepApp

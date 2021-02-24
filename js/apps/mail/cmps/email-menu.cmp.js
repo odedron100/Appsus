@@ -5,7 +5,7 @@ export default {
         <aside class="main-menu">
             <div class="new-email">
               <button @click="showCompose" class="new-email-btn"><span><i class="fas fa-plus"></i></span>Compose</button>
-              <email-compose v-if="compose"/>
+              <email-compose v-if="compose" :compose="compose"  @close="closeCompose"/>
             </div>
             <div class="inbox">
               <span><i class="fas fa-inbox"></i></span><span>Inbox</span>
@@ -28,7 +28,11 @@ export default {
   },
   methods: {
     showCompose() {
-      this.compose = !this.compose;
+      this.compose = true;
+    },
+    closeCompose(compose) {
+      compose = false;
+      this.compose = compose;
     }
   },
   computed: {

@@ -21,6 +21,10 @@
     justify-content: space-between;
 }
 
+.email-compose form{
+    height: 90%;
+}
+
 .email-compose .exit-btn{
     background-color: rgb(77, 77, 77);
     border: none;

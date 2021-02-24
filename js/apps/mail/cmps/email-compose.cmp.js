@@ -1,29 +1,56 @@
+import { emailService } from "../services/email.service.js"
+
 export default {
+    props: ["compose"],
     template: `
          <div class="email-compose">
             <header>
                 <div>New Message</div>
-                <button class="exit-btn"><i class="fas fa-times"></i></button>
-                
+                <button class="exit-btn" @click="sendToDraft"><i class="fas fa-times"></i></button>
             </header>
-            <div class="email-inputs">
-                <input type="email" placeholder="To:" name="email-to" required>
-                <input type="text" placeholder="Subject:" name="email-title" required>
-            </div>
-            <div class="email-text">
-                <textarea name="email-text"></textarea>
-            </div>
-            <div class="email-btn">
-                <button class="send-btn">Send</button></router-link>
-                <button class="remove-btn"><i class="fas fa-trash"></i></button>
-            </div>
+            <form @submit.prevent="sendEmail(email)">
+                <div class="email-inputs">
+                    <input type="email" placeholder="To:" name="email-to" v-model="email.emailAddress" required>
+                    <input type="text" placeholder="Subject:" name="email-title" v-model="email.subject" required>
+                </div>
+                <div class="email-text">
+                    <textarea name="email-text" v-model="email.body" ></textarea>
+                </div>
+                <div class="email-btn">
+                    <input type="submit" class="send-btn" @click="getTime"></input></router-link>
+                    <i class="fas fa-trash remove-btn" @click="closeCompose"></i>
+                </div>
+            </form>
         </div>
     `,
     data() {
         return {
+            email: {
+                emailAddress: null,
+                subject: null,
+                body: null,
+                sentAt: null,
+            }
         }
     },
     methods: {
+        sendEmail(email) {
+            emailService.addEmail(email)
+            this.email.emailAddress = null
+            this.email.subject = null
+            this.email.body = null
+        },
+        getTime() {
+            this.email.sentAt = Date.now();
+        },
+        closeCompose() {
+            this.$emit('close', this.compose)
+        },
+        sendToDraft() {
+            this.closeCompose();
+            console.log('send To Draft');
+            this.$emit('sendDraft')
+        }
     },
     computed: {
 
