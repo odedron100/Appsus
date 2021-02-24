@@ -23,7 +23,7 @@ export default {
         <input type="text" class="note-input" name="image-url" placeholder="Enter img URL..." v-if="newNote.type === 'img'" v-model="newNote.imgURL" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="video-url" placeholder="Enter video URL..." v-if="newNote.type === 'video'" v-model="newNote.videoURL" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="todos" placeholder="Enter todos..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
-        <input type="text" class="note-input" name="audio" placeholder="Enter audio..." v-if="newNote.type === 'audio'" v-model="newNote.todos" @focus="renderTitleInput"/>
+        <!-- <input type="text" class="note-input" name="audio" placeholder="Enter audio..." v-if="newNote.type === 'audio'" v-model="newNote.todos" @focus="renderTitleInput"/> -->
       </div>
       </div>
     </section>
@@ -34,10 +34,10 @@ export default {
       newNote: {
         title: null,
         type: 'text',
-        text: null,
-        color: null,
+        videoURL: null,
         imgURL: null,
         todos: null,
+        text: null
       }
     }
   },

@@ -6,26 +6,27 @@ import noteText from '../cmps/note-text.cmp.js';
 import noteVideo from '../cmps/note-video.cmp.js';
 
 export default {
-  props: ['notes'],
+  props: ['note'],
   template: `
-    <ul class="keep-list">
-        <li v-for="note in notes" :key="note.id" class="note-preview-container">
-          <!-- <note-preview :note="note" @click.native="selecte(note)"/> -->
-          <component :is="activeComponent" :note="note" activeComponent="note.type"></component>
-        </li>
+    <ul class="keep-list" >
+      <li  class="note-preview-container">
+          <component :is="activeComponent" :note="note"></component>
+        <!-- <note-preview :note="note" @click.native="selecte(note)"/> -->
+      </li>
     </ul>
         `,
   data() {
     return {
-      activeComponent: 'note-text',
+      activeComponent: `note-${this.note.type}`,
     }
   },
   methods: {
     select(note) {
       this.$emit('selected', note);
     },
-    changeComponent() {
-
+  }, computed: {
+    changeComponent(type) {
+      console.log('type', type);
     }
   },
   components: {
@@ -37,7 +38,7 @@ export default {
     noteVideo
   },
   created() {
-    console.log('this.notes', this.notes);
-  }
+    console.log('this.note', this.note);
+  },
 
 }

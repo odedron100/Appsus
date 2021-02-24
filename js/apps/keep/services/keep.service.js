@@ -2,7 +2,7 @@ import { utilService } from '../../../services/util-service.js';
 import { storageService } from '../../../services/async-storage-service.js';
 var gNotes = [
   {
-    type: "NoteImg",
+    type: "text",
     info: {
       url: "http://some-img/me",
       title: " oded",
@@ -13,7 +13,7 @@ var gNotes = [
     }
   },
   {
-    type: "NoteImg",
+    type: "text",
     info: {
       url: "http://some-img/me",
       title: "noam",
@@ -24,20 +24,10 @@ var gNotes = [
     }
   },
   {
-    type: "NoteImg",
+    type: "text",
     info: {
       url: "http://some-img/me",
       title: "Rom",
-      text: 'shalom ma kore',
-    },
-    style: {
-      backgroundColor: "#00d"
-    }
-  },
-  {
-    info: {
-      url: "http://some-img/me",
-      title: "Shahar",
       text: 'shalom ma kore',
     },
     style: {
@@ -80,19 +70,18 @@ function createNewNote(note) {
 
 function getEmptyNote(note) {
   console.log('note.title', note.title);
-  if (note.type === 'text') {
-    return {
-      title: note.title,
-      type: note.type,
-      info: {
-        url: note.imgURL,
-        text: note.text,
-        todos: note.todos,
-        audio: note.audio
-      },
-      style: {
-        backgroundColor: note.color,
-      }
+  return {
+    id: utilService.makeId(),
+    title: note.title,
+    type: note.type,
+    info: {
+      url: note.imgURL,
+      text: note.text,
+      todos: note.todos,
+      audio: note.audio
+    },
+    style: {
+      backgroundColor: note.color,
     }
   }
 }
