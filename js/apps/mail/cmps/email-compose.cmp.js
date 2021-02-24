@@ -6,7 +6,7 @@ export default {
          <div class="email-compose">
             <header>
                 <div>New Message</div>
-                <button class="exit-btn" @click="sendToDraft"><i class="fas fa-times"></i></button>
+                <button class="exit-btn" @click="sendToDraft(email)"><i class="fas fa-times"></i></button>
             </header>
             <form @submit.prevent="sendEmail(email)">
                 <div class="email-inputs">
@@ -17,7 +17,7 @@ export default {
                     <textarea name="email-text" v-model="email.body" ></textarea>
                 </div>
                 <div class="email-btn">
-                    <input type="submit" class="send-btn" @click="getTime"></input></router-link>
+                    <input type="submit" class="send-btn" @click="getTime" ></input>
                     <i class="fas fa-trash remove-btn" @click="closeCompose"></i>
                 </div>
             </form>
@@ -46,10 +46,9 @@ export default {
         closeCompose() {
             this.$emit('close', this.compose)
         },
-        sendToDraft() {
+        sendToDraft(email) {
             this.closeCompose();
             console.log('send To Draft');
-            this.$emit('sendDraft')
         }
     },
     computed: {

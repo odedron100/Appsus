@@ -2,11 +2,12 @@ import { utilService } from '../../../services/util-service.js'
 import { storageService } from '../../../services/async-storage-service.js'
 
 const EMAILS_KEY = "emails";
+const DRAFTS_KEY = "drafts"
 
 export const emailService = {
     query,
     getEmptyMail,
-    addEmail
+    addEmail,
 
 }
 
@@ -25,6 +26,7 @@ function addEmail(newEmail) {
     emails.push(email);
     utilService.saveToStorage(EMAILS_KEY, emails)
 }
+
 
 function getEmptyMail(name, subject, emailAddress, body, isRead = false, isPreview = false, sentAt) {
     const email = {
