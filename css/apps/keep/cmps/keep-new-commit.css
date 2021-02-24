@@ -4,48 +4,56 @@
   order: -1;
   flex-basis: 90%;
 }
-.note-modal-container{
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.728);
-}
 
-.note-modal{
-  background-color: white;
+.new-note-container{
   display: flex;
-  height: 50%;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
-  width: 50%;
-  margin: 17% auto;
-  position: relative;
+  align-items: center;
+  height: 150px;
 }
 
-.note-modal h1{
-  font-size: 26px;
-  height: 20px;
-}
-
-.note-modal .close-modal{
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.create-note{
-  margin: 5px;
-}
-
-.note-modal .items-container{
+.notes-types-container{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
   width: 70%;
+  margin: auto;
+}
+
+.note-input{
+  width: 70%;
+  height: 32px;
+  border-left: none;
+  text-align: center;
+  border: 2px solid black;
+  border-left: none;
+}
+
+.notes-types{
+  display: flex;
+  width: 30%;
+  font-size: 24px;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.title-input{
+    display: flex;
+    width: 100%;
+    height: 40%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.note-sound{
+  border-left: 2px solid black ;
+  padding-left: 3px;
+}
+
+.type{
+  cursor: pointer;
 }

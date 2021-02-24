@@ -12,7 +12,7 @@ export default {
            <main class="main-content">
                 <helpers/>
                 <section class="keep-list-container">
-                    <keepNewCommit/>
+                    <keepNewCommit @add="addNote"/>
                     <keep-list :notes="notes"/>
                 </section>
            </main>
@@ -33,6 +33,11 @@ export default {
                     this.notes = notes
                 })
         },
+        addNote(note) {
+            console.log('note', note);
+            keepService.createNewNote(note);
+            this.loadNotes()
+        }
         // selectNote(note) {
         //     this.selectedNote = note;
         // },

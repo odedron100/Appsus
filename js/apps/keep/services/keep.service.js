@@ -51,6 +51,7 @@ const NOTES_KEY = 'notes';
 export const keepService = {
   query,
   getById,
+  createNewNote,
 }
 
 
@@ -68,6 +69,29 @@ function query() {
 
 function getById(id) {
   return storageService.get(NOTES_KEY, id)
+}
+
+function createNewNote(note) {
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  let newNote = getEmptyNote(note)
+  notes.push(newNote);
+  utilService.saveToStorage(NOTES_KEY, notes)
+}
+
+function getEmptyNote(note) {
+  console.log('note.title', note.title);
+  return {
+    title: note.title,
+    type: note.type,
+    info: {
+      url: note.imgURL,
+      text: note.text,
+      todos: note.todos,
+    },
+    style: {
+      backgroundColor: note.color,
+    }
+  }
 }
 
 // function getNextBookId(bookId) {
