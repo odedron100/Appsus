@@ -1,0 +1,51 @@
+.keep-list-container{
+  display: flex;
+  flex-direction: column;
+  order: -1;
+  flex-basis: 90%;
+}
+.note-modal-container{
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.728);
+}
+
+.note-modal{
+  background-color: white;
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  width: 50%;
+  margin: 17% auto;
+  position: relative;
+}
+
+.note-modal h1{
+  font-size: 26px;
+  height: 20px;
+}
+
+.note-modal .close-modal{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.create-note{
+  margin: 5px;
+}
+
+.note-modal .items-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 70%;
+}

@@ -1,45 +1,63 @@
-// import { bookService } from '../services/book-service.js';
+
 import keepHeader from '../cmps/keep-header.cmp.js';
-import aSide from '../cmps/a-side.cmp.js';
-// import bookAdd from '../pages/book-add.cmp.js';
-// import bookDetails from '../pages/book-details.cmp.js';
+import helpers from '../cmps/helpers.cmp.js';
+import keepList from '../cmps/keep-list.cmp.js';
+import keepNewCommit from '../cmps/keep-new-commit.cmp.js';
+import { keepService } from '../services/keep.service.js';
 
 export default {
     template: `
         <section class="keep-app main-container">
            <keep-header/>
            <main class="main-content">
-                <a-side/>
+                <helpers/>
                 <section class="keep-list-container">
-                    <div class="input-commit-container">
-                        <div class="new-commit-img"><i class="far fa-image"></i></div>
-                        <div class="new-commit"><i class="fas fa-edit"></i></div>
-                        <div class="new-list">✅</div>
-                        <input type="text" class="create-new-commit" placeholder="Enter new commit"/>
-                    </div>
-                    <div class="keep-list">
-
-                    </div>
-
+                    <keepNewCommit/>
+                    <keep-list :notes="notes"/>
                 </section>
            </main>
         </section>
     `,
     data() {
         return {
-
+            notes: null,
+            selectedNote: null,
+            filterBy: null,
         }
     },
     methods: {
-
+        loadNotes() {
+            keepService.query()
+                .then(notes => {
+                    console.log('notes', notes);
+                    this.notes = notes
+                })
+        },
+        // selectNote(note) {
+        //     this.selectedNote = note;
+        // },
+        // setFilter(filterBy) {
+        //     this.filterBy = filterBy;
+        // },
     },
     computed: {
-
+        // NotesToShow() {
+        //     if (!this.filterBy) return this.notes;
+        //     const searchStr = this.filterBy.byName.toLowerCase()
+        //     const notesToShow = this.notes.filter(note => {
+        //         console.log('note', note);
+        //         return note.info.title.toLowerCase().includes(searchStr)
+        //     })
+        //     return notesToShow
+        // }
     },
     created() {
+        this.loadNotes()
     },
     components: {
         keepHeader,
-        aSide
+        helpers,
+        keepList,
+        keepNewCommit
     }
 }

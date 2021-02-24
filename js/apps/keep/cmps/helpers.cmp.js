@@ -1,7 +1,7 @@
 
 export default {
   template: `
-   <section class="aSide">
+   <section class="helpers">
       <div class="remarks"><i class="far fa-lightbulb"></i></div>
       <div class="reminder"><i class="fas fa-bell"></i></div>
       <div class="edit"><i class="fas fa-bell"></i></div>

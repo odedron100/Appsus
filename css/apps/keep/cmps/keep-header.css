@@ -1,0 +1,10 @@
+.keep-app-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+.keep-app-header .search-input{
+  width: 40%;
+}
