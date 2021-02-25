@@ -5,7 +5,7 @@ export default {
       <div class="note" v-bind:style="{ background:note.style.backgroundColor}" @click="select">
         <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
         {{note.info.videoSRC}}
-        <div>title:<h4>{{note.title}}</h4></div>
+        <div class="video-title">title:<h2>{{note.title}}</h2></div>
         <iframe class="video-play"  src="https://www.youtube.com/embed?v=note.info.videoSRC" frameborder="0" ></iframe>
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
       </div >
