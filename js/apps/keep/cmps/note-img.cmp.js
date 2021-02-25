@@ -29,28 +29,27 @@
 export default {
   props: ['note'],
   template: `
-      <div class="note" v-bind:style="{ background:note.style.backgroundColor}">
+      <div class="note" v-bind:style="{ background:note.style.backgroundColor}" @click="select">
         <div>title:<h4>{{note.title}}</h4></div>
         <img class="img" :src="note.info.imgURL">
         <!-- <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"> -->
 
       </div>
       `,
-  // <input type="color" value="note.style.backgroundColor">
-  // data() {
-  //   return {
-  //     // bgc: note.style.background
-  //     styleObject: {
-  //       background: this.note.style.background,
-  //     }
-  //   }
-  // },
   methods: {
-
+    select() {
+      this.$emit('selected', this.note);
+      // console.log('this.note.id', this.note.id);
+      // console.log('clicked');
+    }
   },
-  components: {
-  },
-  created() {
-    console.log('this.note.info', this.note.info);
-  }
 }
+    // <input type="color" value="note.style.backgroundColor">
+    // data() {
+    //   return {
+    //     // bgc: note.style.background
+    //     styleObject: {
+    //       background: this.note.style.background,
+    //     }
+    //   }
+    // },

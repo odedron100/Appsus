@@ -28,7 +28,7 @@
 export default {
   props: ['note'],
   template: `
-      <div class="note" v-bind:style="{ background:note.style.backgroundColor}">
+      <div class="note" v-bind:style="{ background:note.style.backgroundColor}" @click="select">
         <div>title:<h4>{{note.title}}</h4></div>
         <div>text:<h4>{{note.info.text}}</h4></div>
         <input type="color" value="note.style.backgroundColor">
@@ -43,7 +43,11 @@ export default {
   //   }
   // },
   methods: {
-
+    select() {
+      this.$emit('selected', this.note);
+      // console.log('this.note.id', this.note.id);
+      // console.log('clicked');
+    }
   },
   components: {
   },

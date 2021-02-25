@@ -10,7 +10,7 @@ export default {
   template: `
     <ul class="keep-list" >
       <li  class="note-preview-container">
-          <component :is="activeComponent" :note="note"></component>
+          <component :is="activeComponent" :note="note" @selected="selected"></component>
       </li>
     </ul>
         `,
@@ -20,12 +20,13 @@ export default {
     }
   },
   methods: {
-    select(note) {
+    selected(note) {
+      // console.log('note', note);
       this.$emit('selected', note);
     },
   }, computed: {
     changeComponent(type) {
-      console.log('type', type);
+      // console.log('type', type);
     }
   },
   components: {
@@ -37,7 +38,7 @@ export default {
     noteVideo
   },
   created() {
-    console.log('this.note', this.note);
+    // console.log('this.note', this.note);
   },
 
 }

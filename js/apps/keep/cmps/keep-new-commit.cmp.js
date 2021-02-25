@@ -17,12 +17,21 @@ export default {
           <div class="note-img type" @click="changeType('img')"><i class="far fa-image"></i></div>
           <div class="note-text type" @click="changeType('text')"><i class="fas fa-font"></i></div>
           <div class="note-text type" @click="changeType('todos')"><i class="fas fa-list-ul"></i></div>
-          <div class="note-text type" @click="changeType('color')"><i class="fas fa-palette"></i></div>
+          <div class="note-text type" @click="isColorSelected=true"><i class="fas fa-palette"></i></div>
         </div>
+
         <input type="text" class="note-input" name="title" placeholder="write somthing..." v-if="newNote.type === 'text'" v-model="newNote.text" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="image-url" placeholder="Enter img URL..." v-if="newNote.type === 'img'" v-model="newNote.imgURL" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="video-src" placeholder="Enter video SRC..." v-if="newNote.type === 'video'" v-model="newNote.videoSRC" @focus="renderTitleInput"/>
-        <input type="text" class="note-input" name="todos" placeholder="Enter todos..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
+        <input type="color" class="color-input" name="color" v-model="newNote.color" v-if="isColorSelected === true"/>
+        <input type="text" class="note-input" name="todos" placeholder="Your todos title..." v-if="newNote.type === 'todos'" v-model="newNote.todos.todosTitle" @focus="renderTitleInput"/>
+        <div class="todos-inputs-container">
+          <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo1" @focus="renderTitleInput"/>
+          <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo2" @focus="renderTitleInput"/>
+          <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo3" @focus="renderTitleInput"/>
+        </div>
+
+
         <!-- <input type="text" class="note-input" name="audio" placeholder="Enter audio..." v-if="newNote.type === 'audio'" v-model="newNote.todos" @focus="renderTitleInput"/> -->
       </div>
       </div>
@@ -30,30 +39,37 @@ export default {
     `,
   data() {
     return {
+      isColorSelected: false,
       isOnFocus: false,
       newNote: {
+        color: null,
         imgURL: null,
         title: null,
         type: 'text',
         videoSRC: null,
-        todos: null,
-        text: null
+        text: null,
+        todos: {
+          todosTitle: null,
+          todo1: null,
+          todo2: null,
+          todo3: null,
+        },
       }
     }
   },
   methods: {
     changeType(type) {
-      console.log('type', type);
+      // console.log('type', type);
       this.newNote.type = type;
     },
     addNewNote() {
-      console.log('this.newNote', this.newNote);
+      // console.log('this.newNote', this.newNote);
       this.$emit('add', this.newNote);
       this.resetInputs();
     },
     renderTitleInput() {
-      console.log('hi');
       this.isOnFocus = true;
+      this.isColorSelected = false;
     },
     resetInputs() {
       this.newNote.title = null;
@@ -62,7 +78,8 @@ export default {
       this.newNote.color = null;
       this.newNote.imgURL = null;
       this.newNote.todos = null;
-      this.videoSrc = null;
+      this.newNote.videoSrc = null;
+      this.newNote.color = null;
     }
   },
   components: {

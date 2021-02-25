@@ -3,6 +3,7 @@ import { storageService } from '../../../services/async-storage-service.js';
 var gNotes = [
   {
     type: "text",
+    id: '1',
     info: {
       url: "http://some-img/me",
       title: " oded",
@@ -14,6 +15,7 @@ var gNotes = [
   },
   {
     type: "text",
+    id: '2',
     info: {
       url: "http://some-img/me",
       title: "noam",
@@ -25,6 +27,7 @@ var gNotes = [
   },
   {
     type: "text",
+    id: '3',
     info: {
       url: "http://some-img/me",
       title: "Rom",
@@ -42,6 +45,7 @@ export const keepService = {
   query,
   getById,
   createNewNote,
+  removeNote,
 }
 
 
@@ -88,6 +92,15 @@ function getEmptyNote(note) {
   }
 }
 
+function removeNote(id) {
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  console.log('notes', notes);
+  const nooteToRemove = notes.findIndex(note => {
+    return id === note.id
+  })
+  notes.splice(nooteToRemove, 1);
+  utilService.saveToStorage(NOTES_KEY, notes)
+}
 
 // title: note.title,
 //   type: note.type,

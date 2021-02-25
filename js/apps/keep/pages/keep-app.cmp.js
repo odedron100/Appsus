@@ -10,12 +10,12 @@ export default {
         <section class="keep-app main-container">
            <keep-header/>
            <main class="main-content">
-                <helpers/>
+                <helpers :selectedNote="selectedNote" @remove="remove" @edit="edit"/>
                 <section class="keep-list-container">
-                    <keepNewCommit @add="addNote"/>
+                    <keepNewCommit @add="addNote" />
                     <div class="keep-list-content">
                         <div v-for="note in notes" class="keep-note-list">
-                            <keep-list :note="note"/>
+                            <keep-list :note="note" @selected="selected"/>
                         </div>
                     </div>
                 </section>
@@ -34,7 +34,7 @@ export default {
             keepService.query()
                 .then(notes => {
                     // console.log('notes', notes);
-                    console.log('notes', notes);
+                    // console.log('notes', notes);
                     this.notes = notes
                 })
         },
@@ -43,8 +43,17 @@ export default {
             console.log('note', note);
             keepService.createNewNote(note);
             this.loadNotes()
+        },
+        selected(note) {
+            this.selectedNote = note;
+            console.log('note', note);
+        },
+        remove(note) {
+            keepService.removeNote(note.id);
+            this.loadNotes()
+            // console.log('this.notes', this.notes);
         }
-        // selectNote(note) {
+        // selectNote(id) {
         //     this.selectedNote = note;
         // },
         // setFilter(filterBy) {
