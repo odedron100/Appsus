@@ -6,9 +6,9 @@ import emailFilter from '../cmps/email-filter.cmp.js';
 export default {
     template: `
         <main class="main-content-list">
-          <email-filter :filtered="setFilter"/>
+          <email-filter @filter="setFilter"/>
             <ul class="list-items">
-                <li v-for="email in emails" :key="email.id" class="list-item" @click="showPreview(email)">
+                <li v-for="email in emailsToShow" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview v-if="email.isPreview" :email="email"/>
                     <div  class="email-short" :class={read:!email.isRead} >
                         <span @click.stop="emailStarred(email)"><i class="far fa-star"></i></span>
@@ -57,9 +57,17 @@ export default {
         emailDeleted(email) {
             emailService.removeEmail(email.id)
             this.loadEmails();
-        }
+        },
     },
     computed: {
+        emailsToShow() {
+            if (!this.filterBy) return this.emails;
+            const searchStr = this.filterBy.toLowerCase()
+            const emailsToShow = this.emails.filter(email => {
+                return email.name.toLowerCase().includes(searchStr)
+            })
+            return emailsToShow
+        }
     },
     created() {
         this.loadEmails();
