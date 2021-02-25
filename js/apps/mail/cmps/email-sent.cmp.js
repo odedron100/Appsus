@@ -1,7 +1,7 @@
+import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
 
 export default {
-    props: ['emails'],
     template: `
          <div class="email-sent">
          <main class="main-content-list">
@@ -28,17 +28,24 @@ export default {
     `,
     data() {
         return {
+            emails: null,
         }
     },
     methods: {
+        loadEmails() {
+            emailService.query()
+                .then(emails => this.emails = emails)
+        },
         showPreview(email) {
             email.isRead = true;
             email.isPreview = !email.isPreview;
         }
     },
     computed: {
+
     },
     created() {
+        this.loadEmails();
     },
     components: {
         emailPreview

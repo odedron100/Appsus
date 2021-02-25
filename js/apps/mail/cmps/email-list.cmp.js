@@ -9,7 +9,7 @@ export default {
                 <li v-for="email in emails" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview v-if="email.isPreview" :email="email"/>
                     <div  class="email-short" :class={read:!email.isRead} >
-                        <span @click.stop="emailStarred(email)" :class="{fill:email.isStarred}"><i class="far fa-star"></i></span>
+                        <span @click.stop="emailStarred(email)"><i class="far fa-star"></i></span>
                         <div class="name-sent">
                         <h4>{{email.name}}</h4>
                         </div>
@@ -46,10 +46,9 @@ export default {
             email.isStarred = true;
             console.log('email', email);
             utilService.saveToStorage('emails', this.emails)
-        }
+        },
     },
     computed: {
-
     },
     created() {
         this.loadEmails();

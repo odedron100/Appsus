@@ -3,7 +3,7 @@ export default {
   template: `
         <aside class="main-menu">
             <div class="new-email">
-              <router-link to="/email/compose" class="new-email-btn"><span><i class="fas fa-plus"></i></span><span>Compose</span></router-link>
+              <router-link to="/email/compose" class="new-email-btn"><img src="../../../img/compose.png"/><span>Compose</span></router-link>
             </div>
             <div class="inbox">
                   <router-link to="/email/inbox"><span><i class="fas fa-inbox"></i></span><span>Inbox</span></router-link>

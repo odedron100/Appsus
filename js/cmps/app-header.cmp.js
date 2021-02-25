@@ -2,7 +2,7 @@ export default {
     template: `
    <header class="app-header">
         <div class="logo">
-           <h1>Appsus</h1>
+           <h1><router-link active-class="active-link" to="/" exact>Appsus</router-link></h1>
        </div>
        <div class="serach-filter">
          

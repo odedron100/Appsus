@@ -42,6 +42,7 @@ export default {
         }
     },
     computed: {
+
     },
     created() {
         this.loadEmails()

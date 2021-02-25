@@ -33,7 +33,7 @@ function draftsQuery() {
 
 function addEmail(newEmail) {
     let emails = utilService.loadFromStorage(EMAILS_KEY);
-    let email = getEmptyMail('Rom', newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, false)
+    let email = getEmptyMail('Rom', newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, true, false)
     emails.push(email);
     utilService.saveToStorage(EMAILS_KEY, emails)
 }

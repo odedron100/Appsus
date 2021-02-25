@@ -1,6 +1,7 @@
 /* MAIN CONTENT LIST */
 
 .main-content-list{
+    margin: 4rem auto;
     flex-basis: 85%;
     display: flex;
     flex-direction: column;
@@ -17,12 +18,20 @@
     flex-direction: column;
 }
 
+.email-short:hover{
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);;
+}
+
 .email-short{
     padding: 0 2rem 0 1rem;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid lightgray;
     cursor: pointer;
+    height: 2.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: box-shadow .4s;
 }
 
 .details-sent{
@@ -41,5 +50,5 @@
 }
 
 .read{
-    background-color: grey;
+    background-color: #F2F5F5CC;
 }
