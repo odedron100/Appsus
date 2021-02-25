@@ -1,4 +1,4 @@
-import notePreview from './note-preview.cmp.js';
+
 import noteAudio from '../cmps/note-audio.cmp.js';
 import noteImg from '../cmps/note-img.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
@@ -21,24 +21,14 @@ export default {
   },
   methods: {
     selected(note) {
-      // console.log('note', note);
       this.$emit('selected', note);
     },
-  }, computed: {
-    changeComponent(type) {
-      // console.log('type', type);
-    }
   },
   components: {
-    notePreview,
     noteAudio,
     noteImg,
     noteTodos,
     noteText,
     noteVideo
   },
-  created() {
-    // console.log('this.note', this.note);
-  },
-
 }

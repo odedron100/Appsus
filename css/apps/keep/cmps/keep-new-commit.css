@@ -3,6 +3,7 @@
   flex-direction: column;
   order: -1;
   flex-basis: 90%;
+  height: 100vh;
 }
 
 .new-note-container{
@@ -11,42 +12,61 @@
   justify-content: center;
   align-items: center;
   height: 150px;
+  margin-inline-start: 11%;
 }
 
 .notes-types-container{
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
   margin: auto;
+  margin-bottom: 50px;
 }
 
 .note-input{
-  width: 50%;
-  height: 32px;
-  border-left: none;
+  width: 40%;
+  height: 40px;
   text-align: center;
-  border: 2px solid black;
-  border-left: none;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+  outline: none;
+  margin: 10px auto;
+}
+
+.note-input-title{
+  width: 60%;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+  outline: none;
+  margin: 10px auto;
 }
 
 .notes-types{
   display: flex;
-  width: 30%;
+  width: 60%;
   font-size: 24px;
+  margin-right: 20px;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
 }
 
 .notes-types .type{
   padding-left: 7px;
+  transition: transform 0.3s,color 0.3s;
+  color: rgba(0, 0, 0, 0.577);
 }
 
-.note-audio{
-  border-left: 2px solid black;
+.notes-types .type:hover{
+  transform: scale(1.1);
+  color: black
 }
 
 .title-input{

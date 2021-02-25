@@ -10,7 +10,7 @@ export default {
         <section class="keep-app main-container">
            <keep-header/>
            <main class="main-content">
-                <helpers :selectedNote="selectedNote" @remove="remove" @edit="edit"/>
+                <helpers :selectedNote="selectedNote" @remove="remove"/>
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote" />
                     <div class="keep-list-content">
@@ -51,25 +51,7 @@ export default {
         remove(note) {
             keepService.removeNote(note.id);
             this.loadNotes()
-            // console.log('this.notes', this.notes);
-        }
-        // selectNote(id) {
-        //     this.selectedNote = note;
-        // },
-        // setFilter(filterBy) {
-        //     this.filterBy = filterBy;
-        // },
-    },
-    computed: {
-        // NotesToShow() {
-        //     if (!this.filterBy) return this.notes;
-        //     const searchStr = this.filterBy.byName.toLowerCase()
-        //     const notesToShow = this.notes.filter(note => {
-        //         console.log('note', note);
-        //         return note.info.title.toLowerCase().includes(searchStr)
-        //     })
-        //     return notesToShow
-        // }
+        },
     },
     created() {
         this.loadNotes()

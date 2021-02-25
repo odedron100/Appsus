@@ -1,10 +1,21 @@
 .keep-app-header{
-  width: 100%;
+  padding: 20px;
+  width: 91%;
+  margin-inline-start: 38px;
   display: flex;
   justify-content: space-between;
   font-size: 24px;
+  align-items: center;
 }
 
 .keep-app-header .search-input{
   width: 40%;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+  outline: none;
+  margin: 10px auto;
 }

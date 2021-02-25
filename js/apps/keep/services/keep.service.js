@@ -10,7 +10,7 @@ var gNotes = [
       text: 'shalom ma kore',
     },
     style: {
-      backgroundColor: "#00d"
+      backgroundColor: null,
     }
   },
   {
@@ -22,7 +22,7 @@ var gNotes = [
       text: 'shalom ma kore',
     },
     style: {
-      backgroundColor: "#00d"
+      backgroundColor: null,
     }
   },
   {
@@ -34,7 +34,7 @@ var gNotes = [
       text: 'shalom ma kore',
     },
     style: {
-      backgroundColor: "#00d"
+      backgroundColor: null,
     }
   },
 ];
@@ -48,8 +48,6 @@ export const keepService = {
   removeNote,
 }
 
-
-
 function query() {
   let notes = utilService.loadFromStorage(NOTES_KEY)
   if (!notes || !notes.length) {
@@ -59,7 +57,6 @@ function query() {
   }
   return storageService.query(NOTES_KEY);
 }
-
 
 function getById(id) {
   return storageService.get(NOTES_KEY, id)
@@ -101,29 +98,3 @@ function removeNote(id) {
   notes.splice(nooteToRemove, 1);
   utilService.saveToStorage(NOTES_KEY, notes)
 }
-
-// title: note.title,
-//   type: note.type,
-//     info: {
-//   url: note.imgURL,
-//     text: note.text,
-//       todos: note.todos,
-//       },
-// style: {
-//   backgroundColor: note.color,
-
-// function getNextBookId(bookId) {
-//   let books = utilService.loadFromStorage(BOOKS_KEY);
-//   var foundBook = books.find(book => bookId === book.id)
-//   const bookIdx = books.findIndex(book => foundBook.id === book.id)
-//   const nextBookId = books[bookIdx + 1].id
-//   return nextBookId;
-// }
-
-// function getPrevBookId(bookId) {
-//   let books = utilService.loadFromStorage(BOOKS_KEY);
-//   var foundBook = books.find(book => bookId === book.id)
-//   const bookIdx = books.findIndex(book => foundBook.id === book.id)
-//   const prevBookId = books[bookIdx - 1].id
-//   return prevBookId;
-// }
