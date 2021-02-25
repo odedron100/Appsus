@@ -31,6 +31,18 @@
   position: relative;
 }
 
+.note .trash{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.note .edit{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .note:hover{
   transform: scale(1.05);
 }

@@ -10,7 +10,7 @@ export default {
   template: `
     <ul class="keep-list" >
       <li  class="note-preview-container">
-          <component :is="activeComponent" :note="note" @selected="selected"></component>
+          <component :is="activeComponent" :note="note" @remove="remove" @editNote="editNote"></component>
       </li>
     </ul>
         `,
@@ -23,6 +23,12 @@ export default {
     selected(note) {
       this.$emit('selected', note);
     },
+    remove(note) {
+      this.$emit('remove', note);
+    },
+    editNote(note) {
+      this.$emit('editNote', note)
+    }
   },
   components: {
     noteAudio,
