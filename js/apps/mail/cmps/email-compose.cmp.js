@@ -49,8 +49,8 @@ export default {
         },
         sendToDraft(email) {
             this.getTime()
-            console.log('email', email);
-            this.$router.push('/email/inbox');
+            emailService.addDraft(email)
+            this.$router.push('/email/draftted');
         }
     },
     computed: {

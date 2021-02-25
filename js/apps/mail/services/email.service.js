@@ -8,6 +8,8 @@ export const emailService = {
     query,
     getEmptyMail,
     addEmail,
+    draftsQuery,
+    addDraft,
 
 }
 
@@ -20,16 +22,32 @@ function query() {
     return storageService.query(EMAILS_KEY);
 }
 
+function draftsQuery() {
+    let drafts = utilService.loadFromStorage(DRAFTS_KEY)
+    if (!drafts || !drafts.length) {
+        drafts = [];
+        utilService.saveToStorage(DRAFTS_KEY, drafts)
+    }
+    return storageService.query(DRAFTS_KEY);
+}
+
 function addEmail(newEmail) {
     let emails = utilService.loadFromStorage(EMAILS_KEY);
-    let email = getEmptyMail('Rom', newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, true)
+    let email = getEmptyMail('Rom', newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, false)
     emails.push(email);
     utilService.saveToStorage(EMAILS_KEY, emails)
 }
 
+function addDraft(newDraft) {
+    let drafts = utilService.loadFromStorage(DRAFTS_KEY);
+    let draft = getEmptyMail('Rom', newDraft.subject, newDraft.emailAddress, newDraft.body, true, false, newDraft.sentAt)
+    drafts.push(draft);
+    utilService.saveToStorage(DRAFTS_KEY, drafts)
+}
 
 
-function getEmptyMail(name, subject, emailAddress, body, isRead = false, isPreview = false, sentAt, isSent = false, isDraft = false) {
+
+function getEmptyMail(name, subject, emailAddress, body, isRead = false, isPreview = false, sentAt, isSent = false, isStarred = false) {
     const email = {
         id: utilService.makeId(),
         name,
@@ -40,7 +58,7 @@ function getEmptyMail(name, subject, emailAddress, body, isRead = false, isPrevi
         isPreview,
         sentAt,
         isSent,
-        isDraft
+        isStarred,
     }
     return email;
 }

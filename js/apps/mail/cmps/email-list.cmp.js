@@ -1,3 +1,4 @@
+import { utilService } from '../../../services/util-service.js';
 import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
 
@@ -8,6 +9,7 @@ export default {
                 <li v-for="email in emails" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview v-if="email.isPreview" :email="email"/>
                     <div  class="email-short" :class={read:!email.isRead} >
+                        <span @click.stop="emailStarred(email)" :class="{fill:email.isStarred}"><i class="far fa-star"></i></span>
                         <div class="name-sent">
                         <h4>{{email.name}}</h4>
                         </div>
@@ -38,6 +40,12 @@ export default {
             console.log('email', email);
             email.isRead = true;
             email.isPreview = !email.isPreview;
+            utilService.saveToStorage('emails', this.emails)
+        },
+        emailStarred(email) {
+            email.isStarred = true;
+            console.log('email', email);
+            utilService.saveToStorage('emails', this.emails)
         }
     },
     computed: {

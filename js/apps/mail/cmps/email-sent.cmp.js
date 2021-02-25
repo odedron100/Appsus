@@ -32,7 +32,6 @@ export default {
     },
     methods: {
         showPreview(email) {
-            console.log('email', email);
             email.isRead = true;
             email.isPreview = !email.isPreview;
         }
