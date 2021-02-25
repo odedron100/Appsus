@@ -46,6 +46,7 @@ export const keepService = {
   getById,
   createNewNote,
   removeNote,
+  editNote
 }
 
 function query() {
@@ -87,6 +88,10 @@ function getEmptyNote(note) {
       backgroundColor: note.color,
     }
   }
+}
+
+function editNote(note) {
+  return storageService.put(NOTES_KEY, note)
 }
 
 function removeNote(id) {
