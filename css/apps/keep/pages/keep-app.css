@@ -10,6 +10,10 @@
 @import '../cmps/note-video.css';
 @import '../cmps/note-preview.css';
 
+*{
+  font-family: 'Quicksand', sans-serif;
+}
+
 .keep-app{
   width: 100%;
   height: 100vh;
