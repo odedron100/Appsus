@@ -1,10 +1,12 @@
 import { utilService } from '../../../services/util-service.js';
 import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
+import emailFilter from '../cmps/email-filter.cmp.js';
 
 export default {
     template: `
         <main class="main-content-list">
+          <email-filter :filtered="setFilter"/>
             <ul class="list-items">
                 <li v-for="email in emails" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview v-if="email.isPreview" :email="email"/>
@@ -29,6 +31,7 @@ export default {
     data() {
         return {
             emails: null,
+            filterBy: null,
         }
     },
     methods: {
@@ -47,6 +50,9 @@ export default {
             console.log('email', email);
             utilService.saveToStorage('emails', this.emails)
         },
+        setFilter(filterBy) {
+            this.filterBy = filterBy;
+        },
     },
     computed: {
     },
@@ -54,6 +60,7 @@ export default {
         this.loadEmails();
     },
     components: {
-        emailPreview
+        emailPreview,
+        emailFilter
     }
 }

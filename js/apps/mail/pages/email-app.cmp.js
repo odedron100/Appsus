@@ -6,6 +6,7 @@ import emailDraffted from '../cmps/email-draffted.cmp.js';
 import emailStarred from '../cmps/email-starred.cmp.js';
 
 
+
 export default {
     template: `
          <section class="email-app main-container">
@@ -43,7 +44,7 @@ export default {
         emailList,
         emailSent,
         emailStarred,
-        emailDraffted
+        emailDraffted,
     }
 }
 
