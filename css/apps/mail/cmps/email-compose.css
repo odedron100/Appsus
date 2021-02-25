@@ -38,7 +38,7 @@
     flex-direction: column;
 }
 
-.email-inputs input[name="email-to"] , .email-inputs input[name="email-title"]{
+.email-inputs input[name="email-to"] , .email-inputs input[name="email-title"],input[name="name"]{
     flex: 1;
     border: none;
     border-bottom: 1px solid lightgray;

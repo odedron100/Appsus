@@ -2,10 +2,10 @@ export default {
     props: ['email'],
     template: `
          <div class="email-preview">
-            <div class="email-title">{{email.subject}}</div>
             <div class="email-name">
-                <span>{{email.name}}</span>  <span>{{email.emailAddress}}</span>
+             <span style="font-weight:600">{{email.name}}</span> : <span>{{email.emailAddress}}</span>
             </div>
+            <div class="email-title" style="font-weight:600">{{email.subject}}</div>
             <div class="email-text">{{email.body}}</div>
         </div>
     `,

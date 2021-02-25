@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         setFilter() {
-            this.$emit('filtered', this.byName)
+            this.$emit('filter', this.byName)
         }
     }
 }

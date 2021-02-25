@@ -34,14 +34,14 @@ function draftsQuery() {
 
 function addEmail(newEmail) {
     let emails = utilService.loadFromStorage(EMAILS_KEY);
-    let email = getEmptyMail('Rom', newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, true, false)
+    let email = getEmptyMail(newEmail.name, newEmail.subject, newEmail.emailAddress, newEmail.body, false, false, newEmail.sentAt, true, false)
     emails.push(email);
     utilService.saveToStorage(EMAILS_KEY, emails)
 }
 
 function addDraft(newDraft) {
     let drafts = utilService.loadFromStorage(DRAFTS_KEY);
-    let draft = getEmptyMail('Rom', newDraft.subject, newDraft.emailAddress, newDraft.body, true, false, newDraft.sentAt)
+    let draft = getEmptyMail(newDraft.name, newDraft.subject, newDraft.emailAddress, newDraft.body, true, false, newDraft.sentAt)
     drafts.push(draft);
     utilService.saveToStorage(DRAFTS_KEY, drafts)
 }

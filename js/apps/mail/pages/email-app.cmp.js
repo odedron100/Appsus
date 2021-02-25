@@ -17,12 +17,17 @@ export default {
     data() {
         return {
             emails: null,
+            drafts: null,
         }
     },
     methods: {
         loadEmails() {
             emailService.query()
                 .then(emails => this.emails = emails)
+        },
+        loadDrafts() {
+            emailService.draftsQuery()
+                .then(drafts => this.drafts = drafts)
         },
     },
     computed: {
@@ -38,6 +43,7 @@ export default {
     },
     created() {
         this.loadEmails();
+        this.loadDrafts();
     },
     components: {
         emailMenu,
