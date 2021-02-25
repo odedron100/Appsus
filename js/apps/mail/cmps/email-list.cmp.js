@@ -12,6 +12,7 @@ export default {
                     <email-preview v-if="email.isPreview" :email="email"/>
                     <div  class="email-short" :class={read:!email.isRead} >
                         <span @click.stop="emailStarred(email)"><i class="far fa-star"></i></span>
+                        <span @click.stop="emailDeleted(email)"><i class="fas fa-trash"></i></span>
                         <div class="name-sent">
                         <h4>{{email.name}}</h4>
                         </div>
@@ -53,6 +54,10 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
+        emailDeleted(email) {
+            emailService.removeEmail(email.id)
+            this.loadEmails();
+        }
     },
     computed: {
     },

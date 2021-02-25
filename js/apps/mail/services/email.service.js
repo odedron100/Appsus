@@ -10,13 +10,14 @@ export const emailService = {
     addEmail,
     draftsQuery,
     addDraft,
+    removeEmail,
 
 }
 
 function query() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
-        emails = [getEmptyMail('Rom', 'First Mail', 'rom@gmail.com', 'כפייםםםם', false, false, Date.now())];
+        emails = [];
         utilService.saveToStorage(EMAILS_KEY, emails)
     }
     return storageService.query(EMAILS_KEY);
@@ -45,6 +46,13 @@ function addDraft(newDraft) {
     utilService.saveToStorage(DRAFTS_KEY, drafts)
 }
 
+
+function removeEmail(emailId) {
+    let emails = utilService.loadFromStorage(EMAILS_KEY)
+    const emailIdx = emails.findIndex(email => email.id === emailId);
+    emails.splice(emailIdx, 1);
+    utilService.saveToStorage(EMAILS_KEY, emails)
+}
 
 
 function getEmptyMail(name, subject, emailAddress, body, isRead = false, isPreview = false, sentAt, isSent = false, isStarred = false) {
