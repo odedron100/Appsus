@@ -11,7 +11,6 @@ export default {
     <ul class="keep-list" >
       <li  class="note-preview-container">
           <component :is="activeComponent" :note="note"></component>
-        <!-- <note-preview :note="note" @click.native="selecte(note)"/> -->
       </li>
     </ul>
         `,

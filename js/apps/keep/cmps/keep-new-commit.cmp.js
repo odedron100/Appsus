@@ -21,7 +21,7 @@ export default {
         </div>
         <input type="text" class="note-input" name="title" placeholder="write somthing..." v-if="newNote.type === 'text'" v-model="newNote.text" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="image-url" placeholder="Enter img URL..." v-if="newNote.type === 'img'" v-model="newNote.imgURL" @focus="renderTitleInput"/>
-        <input type="text" class="note-input" name="video-url" placeholder="Enter video URL..." v-if="newNote.type === 'video'" v-model="newNote.videoURL" @focus="renderTitleInput"/>
+        <input type="text" class="note-input" name="video-src" placeholder="Enter video SRC..." v-if="newNote.type === 'video'" v-model="newNote.videoSRC" @focus="renderTitleInput"/>
         <input type="text" class="note-input" name="todos" placeholder="Enter todos..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
         <!-- <input type="text" class="note-input" name="audio" placeholder="Enter audio..." v-if="newNote.type === 'audio'" v-model="newNote.todos" @focus="renderTitleInput"/> -->
       </div>
@@ -32,10 +32,10 @@ export default {
     return {
       isOnFocus: false,
       newNote: {
+        imgURL: null,
         title: null,
         type: 'text',
-        videoURL: null,
-        imgURL: null,
+        videoSRC: null,
         todos: null,
         text: null
       }
@@ -43,28 +43,27 @@ export default {
   },
   methods: {
     changeType(type) {
+      console.log('type', type);
       this.newNote.type = type;
     },
     addNewNote() {
       console.log('this.newNote', this.newNote);
       this.$emit('add', this.newNote);
+      this.resetInputs();
+    },
+    renderTitleInput() {
+      console.log('hi');
+      this.isOnFocus = true;
+    },
+    resetInputs() {
       this.newNote.title = null;
       this.newNote.type = 'text';
       this.newNote.text = null;
       this.newNote.color = null;
       this.newNote.imgURL = null;
       this.newNote.todos = null;
-    },
-    renderTitleInput() {
-      console.log('hi');
-      this.isOnFocus = true;
+      this.videoSrc = null;
     }
-    // closeNewNoteModal() {
-    //   this.isNewNoteSelected = false;
-    // },
-    // addNote() {
-    // this.$emit('add', this.newNote);
-    // }
   },
   components: {
     noteAudio,

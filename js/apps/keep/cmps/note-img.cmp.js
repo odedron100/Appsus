@@ -31,7 +31,9 @@ export default {
   template: `
       <div class="note" v-bind:style="{ background:note.style.backgroundColor}">
         <div>title:<h4>{{note.title}}</h4></div>
-        <div>img:<img src="note.info.url"></div>
+        <img class="img" :src="note.info.imgURL">
+        <!-- <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"> -->
+
       </div>
       `,
   // <input type="color" value="note.style.backgroundColor">
@@ -48,4 +50,7 @@ export default {
   },
   components: {
   },
+  created() {
+    console.log('this.note.info', this.note.info);
+  }
 }

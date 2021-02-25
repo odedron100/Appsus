@@ -62,6 +62,7 @@ function getById(id) {
 }
 
 function createNewNote(note) {
+  console.log('note', note);
   let notes = utilService.loadFromStorage(NOTES_KEY);
   let newNote = getEmptyNote(note)
   notes.push(newNote);
@@ -69,16 +70,17 @@ function createNewNote(note) {
 }
 
 function getEmptyNote(note) {
-  console.log('note.title', note.title);
+  console.log('note', note);
   return {
     id: utilService.makeId(),
     title: note.title,
     type: note.type,
     info: {
-      url: note.imgURL,
+      imgURL: note.imgURL,
       text: note.text,
       todos: note.todos,
-      audio: note.audio
+      audio: note.audio,
+      videoSRC: note.videoSRC,
     },
     style: {
       backgroundColor: note.color,

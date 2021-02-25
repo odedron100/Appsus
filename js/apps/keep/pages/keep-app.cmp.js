@@ -13,8 +13,10 @@ export default {
                 <helpers/>
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote"/>
-                    <div v-for="note in notes" class="keep-note-list">
-                        <keep-list :note="note"/>
+                    <div class="keep-list-content">
+                        <div v-for="note in notes" class="keep-note-list">
+                            <keep-list :note="note"/>
+                        </div>
                     </div>
                 </section>
            </main>
@@ -32,6 +34,7 @@ export default {
             keepService.query()
                 .then(notes => {
                     // console.log('notes', notes);
+                    console.log('notes', notes);
                     this.notes = notes
                 })
         },
