@@ -13,7 +13,7 @@ export default {
                 <helpers/>
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote"/>
-                    <div v-for="note in notes">
+                    <div v-for="note in notes" class="keep-note-list">
                         <keep-list :note="note"/>
                     </div>
                 </section>
