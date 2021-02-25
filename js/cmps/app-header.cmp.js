@@ -9,7 +9,7 @@ export default {
        </div>
        <nav>
            <router-link active-class="active-link" to="/" exact>Home</router-link>
-           <router-link to="/email">Email</router-link> 
+           <router-link to="/email/inbox">Email</router-link> 
            <router-link to="/keep">Keep</router-link>
        </nav>
     </header>

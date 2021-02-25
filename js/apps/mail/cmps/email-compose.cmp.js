@@ -36,6 +36,7 @@ export default {
     methods: {
         sendEmail(email) {
             emailService.addEmail(email)
+            this.$router.push('/email/inbox');
             this.email.emailAddress = null
             this.email.subject = null
             this.email.body = null
@@ -44,11 +45,12 @@ export default {
             this.email.sentAt = Date.now();
         },
         closeCompose() {
-            this.$emit('close', this.compose)
+            this.$router.push('/email/inbox');
         },
         sendToDraft(email) {
-            this.closeCompose();
-            console.log('send To Draft');
+            this.getTime()
+            console.log('email', email);
+            this.$router.push('/email/inbox');
         }
     },
     computed: {

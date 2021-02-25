@@ -16,6 +16,11 @@
     height: 10%;
 }
 
+.inbox a,.starred a,.sent-email a,.drafftes a{
+    color: black;
+    text-decoration: none;
+}
+
 
 .main-menu .new-email .new-email-btn{
     background-color: none;

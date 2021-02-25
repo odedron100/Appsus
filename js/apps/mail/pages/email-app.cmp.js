@@ -9,20 +9,13 @@ import emailStarred from '../cmps/email-starred.cmp.js';
 export default {
     template: `
          <section class="email-app main-container">
-            <email-menu @switchMode="switchTo"/>
-            <email-list v-if="isInbox" :emails="emailsToShow"/>
-            <email-starred v-if="isStarred" :emails="emailsToShow"/>
-            <email-sent v-if="isSent" :emails="emailsToShow" />
-            <email-draffted v-if="isDraffted" :emails="emailsToShow"/>
+            <email-menu/>
+            <router-view :emails="emails"/>
          </section>
     `,
     data() {
         return {
             emails: null,
-            isInbox: true,
-            isStarred: false,
-            isSent: false,
-            isDraffted: false,
         }
     },
     methods: {
@@ -30,32 +23,6 @@ export default {
             emailService.query()
                 .then(emails => this.emails = emails)
         },
-        switchTo(name) {
-            if (name === 'inbox') {
-                this.isInbox = true
-                this.isStarred = false
-                this.isSent = false
-                this.isDraffted = false
-            }
-            else if (name === 'star') {
-                this.isInbox = false
-                this.isStarred = true
-                this.isSent = false
-                this.isDraffted = false
-            }
-            else if (name === 'sent') {
-                this.isInbox = false
-                this.isStarred = false
-                this.isSent = true
-                this.isDraffted = false
-            }
-            else if (name === 'draft') {
-                this.isInbox = false
-                this.isStarred = false
-                this.isSent = false
-                this.isDraffted = true
-            }
-        }
     },
     computed: {
         emailsToShow() {
@@ -79,5 +46,7 @@ export default {
         emailDraffted
     }
 }
+
+
 
 
