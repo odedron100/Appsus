@@ -8,6 +8,7 @@ export default {
         <div class="video-title">title:<h2>{{note.title}}</h2></div>
         <iframe class="video-play"  src="https://www.youtube.com/embed?v=note.info.videoSRC" frameborder="0" ></iframe>
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
+        <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div >
   `,
   methods: {
@@ -19,6 +20,9 @@ export default {
     },
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    pinNote() {
+      this.$emit('pinNote', this.note);
     }
   },
 }

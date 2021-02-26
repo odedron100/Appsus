@@ -9,6 +9,7 @@ export default {
         <div><h5>{{note.info.todos.todo1}}</h5></div>
         <div><h5>{{note.info.todos.todo2}}</h5></div>
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
+        <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div >
   `,
   methods: {
@@ -20,6 +21,9 @@ export default {
     },
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    pinNote() {
+      this.$emit('pinNote', this.note);
     }
   }
 }

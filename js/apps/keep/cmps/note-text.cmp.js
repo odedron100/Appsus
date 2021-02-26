@@ -6,8 +6,9 @@ export default {
         <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
         <div><h2 @click="edit()">{{note.title}}</h2></div>
         <div><h4>{{note.info.text}}</h4></div>
-        <input type="color" class="input-color" value="note.style.backgroundColor">
+        <input type="color" class="input-color" value="{note.style.backgroundColor}">
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
+        <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div>
     `,
   data() {
@@ -24,6 +25,9 @@ export default {
     },
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    pinNote() {
+      this.$emit('pinNote', this.note);
     }
   },
 }

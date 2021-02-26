@@ -13,9 +13,14 @@ export default {
                 <!-- <helpers :selectedNote="selectedNote" @editNote="editNote"/> -->
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote" />
+                    <div class="keep-pinned-list-content">
+                        <div v-for="note in pinnedNotes" class="keep-note-list">
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
+                        </div>
+                    </div>
                     <div class="keep-list-content">
                         <div v-for="note in notesToShow" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
                         </div>
                     </div>
                 </section>
@@ -50,6 +55,10 @@ export default {
         },
         remove(note) {
             keepService.removeNote(note.id);
+            this.loadNotes()
+        },
+        pinNote(note) {
+            keepService.pinNoteInList(note.id);
             this.loadNotes()
         },
         setFilter(filterBy) {
@@ -182,13 +191,28 @@ export default {
     },
     computed: {
         notesToShow() {
-            if (!this.filterBy) return this.notes;
+            if (!this.filterBy) return this.notes.filter(note => !note.pin);
             const searchStr = this.filterBy.toLowerCase()
             const notesToShow = this.notes.filter(note => {
                 console.log('note', note);
-                return note.title.toLowerCase().includes(searchStr)
+                return (note.title.toLowerCase().includes(searchStr) && !note.pin)
             })
             return notesToShow
+        },
+        pinnedNotes() {
+            // if (!this.filterBy) return this.notes;
+            // const searchStr = this.filterBy.toLowerCase()
+            console.log('this.notes', this.notes);
+
+            if (!this.notes) {
+                return [];
+            }
+
+            const pinnedNotes = this.notes.filter(note => {
+                // console.log('note', note);
+                return note.pin;
+            })
+            return pinnedNotes;
         },
     },
     created() {
