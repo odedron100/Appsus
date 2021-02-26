@@ -32,11 +32,6 @@ export default {
     },
     computed: {
         emailsToShow() {
-            // if (!this.filterBy) return this.emails
-            // const searchStr = this.filterBy.byVendor.toLowerCase()
-            // const carsToShow = this.cars.filter(car => {
-            //     return car.vendor.toLowerCase().includes(searchStr)
-            // })
             const emailsToShow = this.emails;
             return emailsToShow
         }
