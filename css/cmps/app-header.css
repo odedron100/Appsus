@@ -20,7 +20,7 @@
 .app-header nav{
     width: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -28,4 +28,25 @@
     text-decoration: none;
     color: rgb(33, 31, 31);
     font-size: 1.3rem;
+}
+
+.places{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.nav-open{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+    height: 20%;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 9%;
+    right: 0;
+    border-radius: 10px;
+    box-shadow: -5px 4px 9px 0px grey;
+
 }
