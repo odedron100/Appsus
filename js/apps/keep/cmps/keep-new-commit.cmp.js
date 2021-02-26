@@ -59,6 +59,9 @@ export default {
       this.newNote.type = type;
     },
     addNewNote() {
+      if (!this.newNote.title) {
+        return alert('Enter title');
+      }
       this.$emit('add', this.newNote);
       this.resetInputs();
     },
