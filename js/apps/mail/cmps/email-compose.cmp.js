@@ -44,7 +44,7 @@ export default {
                 txt: 'Email sent succesfully!',
                 type: 'success'
             }
-            eventBus.$emit('sent-msg', msg)
+            eventBus.$emit('event-msg', msg)
             this.$router.push('/email/inbox');
             this.email.name = null
             this.email.emailAddress = null
@@ -65,7 +65,7 @@ export default {
                 txt: 'Email sent to drafts!',
                 type: 'success'
             }
-            eventBus.$emit('sent-msg', msg)
+            eventBus.$emit('event-msg', msg)
         }
     },
     computed: {
