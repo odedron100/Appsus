@@ -8,13 +8,13 @@ import { keepService } from '../services/keep.service.js';
 export default {
     template: `
         <section class="keep-app main-container">
-           <keep-header/>
+           <keep-header @filter="setFilter"/>
            <main class="main-content">
                 <!-- <helpers :selectedNote="selectedNote" @editNote="editNote"/> -->
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote" />
                     <div class="keep-list-content">
-                        <div v-for="note in notes" class="keep-note-list">
+                        <div v-for="note in notesToShow" class="keep-note-list">
                             <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote"/>
                         </div>
                     </div>
@@ -51,6 +51,9 @@ export default {
         remove(note) {
             keepService.removeNote(note.id);
             this.loadNotes()
+        },
+        setFilter(filterBy) {
+            this.filterBy = filterBy;
         },
         editNote(note) {
             //make swall alert with 3 input according to the type
@@ -175,6 +178,17 @@ export default {
                 default:
                     break;
             }
+        },
+    },
+    computed: {
+        notesToShow() {
+            if (!this.filterBy) return this.notes;
+            const searchStr = this.filterBy.toLowerCase()
+            const notesToShow = this.notes.filter(note => {
+                console.log('note', note);
+                return note.title.toLowerCase().includes(searchStr)
+            })
+            return notesToShow
         },
     },
     created() {
