@@ -1,5 +1,6 @@
 @import "/css/apps/mail/pages/email-app.css";
 @import "/css/apps/keep/pages/keep-app.css";
+@import "/css/pages/home-page.css";
 @import "/css/cmps/app-header.css";
 
 
@@ -15,7 +16,6 @@ body{
 .main-container{
   width: 100%;
   margin: 0 auto;
-  /* background-color: rgb(244, 244, 244); */
 }
 
 .main-content{
