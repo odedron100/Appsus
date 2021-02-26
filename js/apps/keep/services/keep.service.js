@@ -4,9 +4,9 @@ var gNotes = [
   {
     type: "text",
     id: '1',
+    title: "oded",
     info: {
       url: "http://some-img/me",
-      title: " oded",
       text: 'shalom ma kore',
     },
     style: {
@@ -16,9 +16,9 @@ var gNotes = [
   {
     type: "text",
     id: '2',
+    title: "noam",
     info: {
       url: "http://some-img/me",
-      title: "noam",
       text: 'shalom ma kore',
     },
     style: {
@@ -28,9 +28,9 @@ var gNotes = [
   {
     type: "text",
     id: '3',
+    title: "Rom",
     info: {
       url: "http://some-img/me",
-      title: "Rom",
       text: 'shalom ma kore',
     },
     style: {
@@ -46,7 +46,8 @@ export const keepService = {
   getById,
   createNewNote,
   removeNote,
-  editNote
+  editNote,
+  pinNoteInList
 }
 
 function query() {
@@ -83,6 +84,7 @@ function getEmptyNote(note) {
       todos: note.todos,
       audio: note.audio,
       videoSRC: note.videoSRC,
+      pin: false
     },
     style: {
       backgroundColor: note.color,
@@ -102,4 +104,17 @@ function removeNote(id) {
   })
   notes.splice(nooteToRemove, 1);
   utilService.saveToStorage(NOTES_KEY, notes)
+}
+
+function pinNoteInList(noteId) {
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  let notesToOverride = [];
+  notes.forEach(note => {
+    if (note.id === noteId) {
+      note.pin = !note.pin;
+    }
+
+    notesToOverride.push(note);
+  });
+  utilService.saveToStorage(NOTES_KEY, notesToOverride)
 }

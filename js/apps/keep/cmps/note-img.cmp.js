@@ -2,11 +2,17 @@
 export default {
   props: ['note'],
   template: `
-      <div class="note" v-bind:style="{ background:note.style.backgroundColor,backgroundImage: 'url(' + note.info.imgURL + ')'}" @click="select">
-        <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
-        <div>title:<h4>{{note.title}}</h4></div>
-        <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
-      </div>
+      <section class="note" v-bind:style="{ background:note.style.backgroundColor}" @click="select">
+        <div class="note-title-container" @click="select">
+          <div><h2>{{note.title}}</h2></div>
+        </div>
+        <div class="note-body" v-bind:style="{ background:note.style.backgroundColor,backgroundImage: 'url(' + note.info.imgURL + ')'}">
+          <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
+          <div>title:<h4>{{note.title}}</h4></div>
+          <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
+          <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
+        </div>
+      </section>
       `,
   methods: {
     select() {
@@ -17,6 +23,9 @@ export default {
     },
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    pinNote() {
+      this.$emit('pinNote', this.note);
     }
   },
 }
