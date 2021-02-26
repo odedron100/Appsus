@@ -37,6 +37,10 @@
   margin: 10px auto;
 }
 
+.note-input:focus{
+  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 60%);
+}
+
 .note-input-title{
   width: 60%;
   height: 40px;
@@ -47,6 +51,10 @@
   box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
   outline: none;
   margin: 10px auto;
+}
+
+.note-input-title:focus{
+  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 60%);
 }
 
 .notes-types{
