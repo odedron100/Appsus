@@ -4,9 +4,9 @@ var gNotes = [
   {
     type: "text",
     id: '1',
+    title: "oded",
     info: {
       url: "http://some-img/me",
-      title: " oded",
       text: 'shalom ma kore',
     },
     style: {
@@ -16,9 +16,9 @@ var gNotes = [
   {
     type: "text",
     id: '2',
+    title: "noam",
     info: {
       url: "http://some-img/me",
-      title: "noam",
       text: 'shalom ma kore',
     },
     style: {
@@ -28,9 +28,9 @@ var gNotes = [
   {
     type: "text",
     id: '3',
+    title: "Rom",
     info: {
       url: "http://some-img/me",
-      title: "Rom",
       text: 'shalom ma kore',
     },
     style: {

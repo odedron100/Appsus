@@ -13,11 +13,13 @@ export default {
                 <!-- <helpers :selectedNote="selectedNote" @editNote="editNote"/> -->
                 <section class="keep-list-container">
                     <keepNewCommit @add="addNote" />
+                    <h1 class="pinned-list-title"> pinned notes </h1>
                     <div class="keep-pinned-list-content">
                         <div v-for="note in pinnedNotes" class="keep-note-list">
                             <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
                         </div>
                     </div>
+                    <h1 class="list-title"> notes </h1>
                     <div class="keep-list-content">
                         <div v-for="note in notesToShow" class="keep-note-list">
                             <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
@@ -200,16 +202,10 @@ export default {
             return notesToShow
         },
         pinnedNotes() {
-            // if (!this.filterBy) return this.notes;
-            // const searchStr = this.filterBy.toLowerCase()
-            console.log('this.notes', this.notes);
-
             if (!this.notes) {
                 return [];
             }
-
             const pinnedNotes = this.notes.filter(note => {
-                // console.log('note', note);
                 return note.pin;
             })
             return pinnedNotes;
