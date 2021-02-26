@@ -1,0 +1,45 @@
+.bg-image{
+    background-image: url("../../img/home-page.jpg");
+    filter: blur(3px);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav-items{
+    background-color: rgba(255, 255, 255, 0.523); /* Fallback color */
+    background-color: rgba(255, 255, 255, 0.358); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 1px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    height: 40%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-item {
+    width: 30%;
+}
+
+   
+
+.nav-item a{
+    text-decoration: none;
+    color: rgb(33, 31, 31);
+    font-size: 1.3rem;
+}
+
+.main-head{
+    position: absolute;
+    z-index: 3;
+    font-size: 3rem;
+    left: 30%;
+}
