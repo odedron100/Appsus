@@ -12,6 +12,7 @@ export default {
          <section class="email-app main-container">
             <email-menu/>
             <router-view :emails="emails"/>
+            <div class="bus-msg"></div>
          </section>
     `,
     data() {

@@ -5,7 +5,7 @@ export default {
     `,
     computed: {
         getDescription() {
-            if (this.desc.length > 7) return `${this.desc.substring(0, 7)}...`
+            if (this.desc.length > 10) return `${this.desc.substring(0, 7)}  ...`
             else return this.desc
         }
     },

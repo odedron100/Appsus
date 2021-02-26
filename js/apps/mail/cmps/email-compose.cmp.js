@@ -1,4 +1,6 @@
 import { emailService } from "../services/email.service.js"
+import { eventBus } from '../../../services/event-bus.service.js'
+
 
 export default {
     props: ["compose"],
@@ -38,6 +40,11 @@ export default {
     methods: {
         sendEmail(email) {
             emailService.addEmail(email)
+            const msg = {
+                txt: 'Email sent succesfully!',
+                type: 'success'
+            }
+            eventBus.$emit('sent-msg', msg)
             this.$router.push('/email/inbox');
             this.email.name = null
             this.email.emailAddress = null
@@ -54,6 +61,11 @@ export default {
             this.getTime()
             emailService.addDraft(email)
             this.$router.push('/email/draftted');
+            const msg = {
+                txt: 'Email sent to drafts!',
+                type: 'success'
+            }
+            eventBus.$emit('sent-msg', msg)
         }
     },
     computed: {

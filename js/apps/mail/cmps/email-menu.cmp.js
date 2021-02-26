@@ -6,16 +6,16 @@ export default {
               <router-link to="/email/compose" class="new-email-btn"><img src="../../../img/compose.png"/><span>Compose</span></router-link>
             </div>
             <div class="inbox" :class="{focus:isInbox}">
-                  <router-link to="/email/inbox" @click.native="switchRoute"><span><i class="fas fa-inbox"></i></span><span>Inbox</span></router-link>
+                  <router-link to="/email/inbox" @click.native="switchRoute"><span><i class="fas fa-inbox"></i></span>  <span>Inbox</span></router-link>
             </div>
             <div class="starred" :class="{focus:isStarred}">
-                  <router-link to="/email/starred" @click.native="switchRoute"><span><i class="fas fa-star"></i></span><span>Starred</span></router-link>
+                  <router-link to="/email/starred" @click.native="switchRoute"><span><i class="fas fa-star"></i></span>  <span>Starred</span></router-link>
             </div>
             <div class="sent-email" :class="{focus:isSent}">
-                  <router-link to="/email/sent" @click.native="switchRoute"><span><i class="fas fa-share-square"></i></span><span>Sent Mail</span></router-link>
+                  <router-link to="/email/sent" @click.native="switchRoute"><span><i class="fas fa-share-square"></i></span>  <span>Sent Mail</span></router-link>
             </div>
             <div class="drafftes" :class="{focus:isDraftted}">
-                  <router-link to="/email/draftted" @click.native="switchRoute"><span><i class="fab fa-firstdraft"></i></span><span>Drafts</span></router-link>
+                  <router-link to="/email/draftted" @click.native="switchRoute"><span><i class="fab fa-firstdraft"></i></span>  <span>Drafts</span></router-link>
             </div> 
         </aside>
     `,

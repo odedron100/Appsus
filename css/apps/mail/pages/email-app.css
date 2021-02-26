@@ -17,3 +17,21 @@
     font-family: Helvetica,Arial,sans-serif;;
 }
 
+
+/* EVENT-BUS */
+
+.bus-msg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    height: 20%;
+    background-color: rgb(244, 237, 237);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    display: none;
+    transition: display .3s;
+}

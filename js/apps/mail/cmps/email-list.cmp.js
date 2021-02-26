@@ -3,6 +3,8 @@ import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import longText from '../cmps/long-text.cmp.js';
+import { eventBus } from '../../../services/event-bus.service.js'
+
 
 
 export default {
@@ -21,7 +23,7 @@ export default {
                         <h4 @click.stop="setSort('name')">{{email.name}}</h4>
                         </div>
                         <div class="details-sent">
-                        <span class="title-sent">{{email.subject}}</span>
+                        <long-text class="title-sent" :desc="email.subject" />
                         <span>-</span>
                         <long-text class="desc-sent" :desc="email.body" />
                         </div>
@@ -52,6 +54,11 @@ export default {
             utilService.saveToStorage('emails', this.emails)
         },
         emailStarred(email) {
+            const msg = {
+                txt: 'Email starred succesfully!',
+                type: 'success'
+            }
+            eventBus.$emit('event-msg', msg)
             email.isStarred = true;
             utilService.saveToStorage('emails', this.emails)
         },
@@ -63,6 +70,11 @@ export default {
             console.log('this', this.sortBy);
         },
         emailDeleted(email) {
+            const msg = {
+                txt: 'Email Deleted succesfully!',
+                type: 'success'
+            }
+            eventBus.$emit('event-msg', msg)
             emailService.removeEmail(email.id)
             this.loadEmails();
         },

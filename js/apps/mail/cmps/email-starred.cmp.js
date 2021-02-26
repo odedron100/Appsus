@@ -1,5 +1,7 @@
 import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
+import longText from '../cmps/long-text.cmp.js';
+
 
 export default {
     template: `
@@ -15,7 +17,7 @@ export default {
                         <div class="details-sent">
                         <span class="title-sent">{{email.subject}}</span>
                         <span>-</span>
-                        <span class="desc-sent">{{email.body}}</span>
+                        <long-text class="desc-sent" :desc="email.body" />
                         </div>
                         <div class="time-sent">
                         <h4>{{email.sentAt}}</h4>
@@ -48,7 +50,8 @@ export default {
         this.loadEmails()
     },
     components: {
-        emailPreview
+        emailPreview,
+        longText
     }
 }
 
