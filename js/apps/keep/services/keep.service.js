@@ -110,7 +110,7 @@ function toggleTodo(todo) {
   let notesToOverride = [];
   notes.forEach(note => {
     if (note.id === todo.note.id) {
-      // note.info.todos[todo[idx].isDone] = !note.info.todos[todo[idx].isDone];
+      note.info.todos[todo.idx].isDone = !note.info.todos[todo.idx].isDone;
     }
     notesToOverride.push(note);
   });

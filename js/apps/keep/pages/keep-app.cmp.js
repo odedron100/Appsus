@@ -80,6 +80,7 @@ export default {
             this.loadNotes()
         },
         toggleTodo(todo) {
+            console.log('todo', todo);
             keepService.toggleTodo(todo);
             this.loadNotes()
         },

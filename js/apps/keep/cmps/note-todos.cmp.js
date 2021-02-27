@@ -1,4 +1,4 @@
-
+import longText from '../cmps/long-text.cmp.js';
 export default {
   props: ['note'],
   template: `
@@ -11,6 +11,7 @@ export default {
         <ul class="todos-container">
           <li class="todo" v-for="(todo, idx) in note.info.todos" :key=idx>
               <span @click="toggleTodo(idx)" :class="{'toggle-todo':todo.isDone}" >{{todo.text}}</span>
+              <!-- <long-text @click="toggleTodo(idx)" class="text" :class="{'toggle-todo':todo.isDone} :desc="todo.text"/> -->
           </li>
         </ul>
         <input type="color" class="input-color" value="note.style.backgroundColor" >
@@ -37,10 +38,14 @@ export default {
       this.$emit('pinNote', this.note);
     },
     toggleTodo(idx) {
+      console.log('idx', idx);
       this.$emit('toggleTodo', { idx: idx, note: this.note })
     }
   },
   created() {
     console.log('this.note.info.todos', this.note.info.todos[0].isDone);
+  },
+  components: {
+    longText
   }
 }
