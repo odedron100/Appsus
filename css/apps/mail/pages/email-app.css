@@ -26,19 +26,22 @@
     left: 0;
     width: 20%;
     height: 20%;
-    background-color: rgb(244, 237, 237);
+    background-color: rgb(250, 247, 247);
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
     display: none;
-    transition: display .3s;
+    /* transition: display .3s; */
 }
 
 
 @media screen and (max-width:780px){
     .email-app{
         flex-direction: column;
+    }
+    .bus-msg{
+        width: 100%;
     }
 }
