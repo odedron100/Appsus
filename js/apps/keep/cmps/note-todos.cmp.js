@@ -14,7 +14,7 @@ export default {
               <!-- <long-text @click="toggleTodo(idx)" class="text" :class="{'toggle-todo':todo.isDone} :desc="todo.text"/> -->
           </li>
         </ul>
-        <input type="color" class="input-color" value="note.style.backgroundColor" >
+        <input type="color" class="input-color" v-model="newColor" @change="changeNoteColor">
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
         <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div >
@@ -22,6 +22,7 @@ export default {
   `,
   data() {
     return {
+      newColor: this.note.style.backgroundColor
     }
   },
   methods: {
@@ -40,6 +41,9 @@ export default {
     toggleTodo(idx) {
       console.log('idx', idx);
       this.$emit('toggleTodo', { idx: idx, note: this.note })
+    },
+    changeNoteColor() {
+      this.$emit('changeNoteColor', { note: this.note, color: this.newColor });
     }
   },
   created() {
