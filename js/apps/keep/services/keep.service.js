@@ -81,7 +81,7 @@ function getEmptyNote(note) {
     info: {
       imgURL: note.imgURL,
       text: note.text,
-      todos: note.todos,
+      todos: createTodos(note.todos),
       audio: note.audio,
       videoSRC: note.videoSRC,
       pin: false
@@ -90,6 +90,18 @@ function getEmptyNote(note) {
       backgroundColor: note.color,
     }
   }
+}
+
+function createTodos(todos) {
+  console.log('todos', todos);
+  let todosArr = todos.split(',')
+  let newTodos = [];
+  todosArr.forEach(todo => {
+    newTodos.push(
+      { text: todo, isDone: false }
+    )
+  });
+  return newTodos;
 }
 
 function editNote(note) {

@@ -1,0 +1,10 @@
+.todos-container{
+  width: 100%;
+  padding: 0;
+}
+
+.todo{
+  width: 100%;
+  list-style: none;
+  text-align: center;
+}

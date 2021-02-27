@@ -17,12 +17,7 @@ export default {
           <input type="text" class="note-input" name="image-url" placeholder="Enter img URL..." v-if="newNote.type === 'img'" v-model="newNote.imgURL" @focus="renderTitleInput"/>
           <input type="text" class="note-input" name="video-src" placeholder="Enter video SRC..." v-if="newNote.type === 'video'" v-model="newNote.videoSRC" @focus="renderTitleInput"/>
           <input type="color" class="color-input" name="color" v-model="newNote.color" v-if="isColorSelected === true"/>
-          <input type="text" class="note-input" name="todos" placeholder="Your todos title..." v-if="newNote.type === 'todos'" v-model="newNote.todos.todosTitle" @focus="renderTitleInput"/>
-          <div class="todos-inputs-container">
-            <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo1" @focus="renderTitleInput"/>
-            <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo2" @focus="renderTitleInput"/>
-            <input type="text" class="note-input-todo" name="todo" placeholder="Enter new todo..." v-if="newNote.todos && newNote.type === 'todos'" v-model="newNote.todos.todo3" @focus="renderTitleInput"/>
-          </div>
+          <input type="text" class="note-input" name="todos" placeholder="Your todos title..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
           <div class="notes-types">
             <div class="note-audio type" @click="changeType('audio')"><i class="fas fa-volume-up"></i></div>
             <div class="note-video type" @click="changeType('video')"><i class="fas fa-video"></i></div>
@@ -46,12 +41,7 @@ export default {
         type: 'text',
         videoSRC: null,
         text: null,
-        todos: {
-          todosTitle: null,
-          todo1: null,
-          todo2: null,
-          todo3: null,
-        },
+        todos: null,
       }
     }
   },
