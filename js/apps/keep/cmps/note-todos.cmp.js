@@ -8,10 +8,12 @@ export default {
       </div>
       <div class="note-body" v-bind:style="{ background:note.style.backgroundColor}">
         <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
-        <div><h3>{{note.info.todos.todosTitle}}</h3></div>
-        <div><h5>{{note.info.todos.todo0}}</h5></div>
-        <div><h5>{{note.info.todos.todo1}}</h5></div>
-        <div><h5>{{note.info.todos.todo2}}</h5></div>
+        <ul class="todos-container">
+          <li class="todo" v-for="(todo, idx) in note.info.todos" :key=idx>
+              <span @click="toggleTodo(idx)">{{todo.text}}</span>
+          </li>
+        </ul>
+        <input type="color" class="input-color" value="note.style.backgroundColor" >
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
         <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div >
@@ -29,6 +31,10 @@ export default {
     },
     pinNote() {
       this.$emit('pinNote', this.note);
+    },
+    toggleTodo(idx) {
+      //need to implement toggle todo
+      console.log(idx);
     }
   }
 }
