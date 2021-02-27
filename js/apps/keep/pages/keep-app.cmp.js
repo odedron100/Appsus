@@ -218,13 +218,15 @@ export default {
     },
     computed: {
         notesToShow() {
-            if (!this.filterBy) return this.notes.filter(note => !note.pin);
-            const searchStr = this.filterBy.toLowerCase()
-            const notesToShow = this.notes.filter(note => {
-                console.log('note', note);
-                return (note.title.toLowerCase().includes(searchStr) && !note.pin)
-            })
-            return notesToShow
+            if (!this.filterBy && this.notes) return this.notes.filter(note => !note.pin);
+            if (this.filterBy) {
+                const searchStr = this.filterBy.toLowerCase()
+                const notesToShow = this.notes.filter(note => {
+                    console.log('note', note);
+                    return (note.title.toLowerCase().includes(searchStr) && !note.pin)
+                })
+                return notesToShow
+            }
         },
         pinnedNotes() {
             if (!this.notes) {
