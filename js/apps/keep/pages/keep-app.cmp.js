@@ -56,8 +56,24 @@ export default {
             console.log('note', note);
         },
         remove(note) {
-            keepService.removeNote(note.id);
-            this.loadNotes()
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You can\'t revert your action',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes Delete it!',
+                cancelButtonText: 'No, Keep it!',
+                showCloseButton: true,
+                showLoaderOnConfirm: true
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire('Deleted', 'You successfully deleted this file', 'success')
+                    keepService.removeNote(note.id);
+                    this.loadNotes()
+                } else {
+                    Swal.fire('Cancelled', 'Your file is still intact', 'info')
+                }
+            })
         },
         pinNote(note) {
             keepService.pinNoteInList(note.id);

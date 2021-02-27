@@ -61,10 +61,16 @@ export default {
     },
     addNewNote() {
       if (!this.newNote.title) {
-        return alert('Enter title');
+        Swal.fire({
+        }).then((result) => {
+          if (result.value) {
+            Swal.fire('You must enter a title')
+          }
+        })
+      } else {
+        this.$emit('add', this.newNote);
+        this.resetInputs();
       }
-      this.$emit('add', this.newNote);
-      this.resetInputs();
     },
     renderTitleInput() {
       this.isOnFocus = true;
