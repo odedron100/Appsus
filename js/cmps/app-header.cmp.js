@@ -15,20 +15,15 @@ export default {
                 <router-link active-class="active-link" to="/" exact>Home</router-link>
            </div>
            <div class="nav-item" @click="openNav">
-<<<<<<< HEAD
-                <img src="../../../img/mail.jpeg" />
+                <img src="img/mail.jpeg" />
                 <router-link to="/email/inbox">Email</router-link>
-=======
-                <img src="/img/mail.jpeg" />
-                <router-link to="/email/inbox">Email</router-link> 
->>>>>>> origin/main
            </div>
            <div class="nav-item" @click="openNav">
-                <img src="/img/keep.png" />
+                <img src="img/keep.png" />
                 <router-link to="/keep">Keep</router-link>
            </div>
            <div class="nav-item" @click="openNav">
-                <img src="/img/book.png" />
+                <img src="img/book.png" />
                 <router-link to="/book">Book</router-link>
            </div>
            </div>
