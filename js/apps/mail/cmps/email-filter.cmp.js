@@ -3,6 +3,7 @@ export default {
     <section class="email-filter">
         <input type="text" @input="setFilter" placeholder="Search...." v-model="byName">
         <select name="options" @change="setSort">
+            <option value="all">All</option>
             <option value="time">Time</option>
             <option value="title">Title</option>
         </select>

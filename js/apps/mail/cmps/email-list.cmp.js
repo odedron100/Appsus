@@ -97,7 +97,7 @@ export default {
         },
         getTime() {
             return `${new Date().getHours()}:${new Date().getMinutes()}`
-        }
+        },
     },
     created() {
         this.loadEmails();

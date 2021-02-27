@@ -17,7 +17,7 @@
     height: 7%;
     padding-left: 1rem;
     transition: background-color .4s;
-    border-radius: 40px;
+    border-radius: 0 40px 40px 0;
     margin-bottom: 1.5rem;
     cursor: pointer;
 }
