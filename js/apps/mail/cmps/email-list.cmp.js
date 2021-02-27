@@ -14,13 +14,13 @@ export default {
             <ul class="list-items">
                 <li v-for="email in emailsToShow" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview v-if="email.isPreview" :email="email"/>
-                    <div  class="email-short" :class={read:!email.isRead,open:isOpen}>
+                    <div  class="email-short" :class="{read:!email.isRead,open:isOpen}">
                         <div class="icons">
-                            <span @click.stop="emailStarred(email)"><i class="far fa-star"></i></span>
+                            <span @click.stop="emailStarred(email)"><i class="far fa-star" :class="{fas:email.isStarred}"></i></span>
                             <span @click.stop="emailDeleted(email)"><i class="fas fa-trash"></i></span>
                         </div>
                         <div class="name-sent">
-                        <h4 @click.stop="setSort('name')">{{email.name}}</h4>
+                        <h4 @click.stop="setSort('name')" :class="{bold:!email.isRead}">{{email.name}}</h4>
                         </div>
                         <div class="details-sent">
                         <long-text class="title-sent" :desc="email.subject" />
@@ -59,7 +59,7 @@ export default {
                 type: 'success'
             }
             eventBus.$emit('event-msg', msg)
-            email.isStarred = true;
+            email.isStarred = !email.isStarred;
             utilService.saveToStorage('emails', this.emails)
         },
         setFilter(filterBy) {

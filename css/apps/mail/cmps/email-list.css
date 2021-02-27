@@ -65,6 +65,10 @@
     background-color: #cbcbcbcc;
 }
 
+.bold{
+    font-family: bold;
+}
+
 @media screen and (max-width:780px){
     .main-content-list{
         width: 100%;
