@@ -1,6 +1,7 @@
 .keep-list-content{
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
 }
 
 .keep-pinned-list-content{
@@ -12,6 +13,7 @@
 .pinned-list-title{
   text-align: center;
   font-size: 24px;
+  margin-top: 70px;
 }
 
 .list-title{
