@@ -6,10 +6,10 @@ import emailStarred from './apps/mail/cmps/email-starred.cmp.js';
 import emailSent from './apps/mail/cmps/email-sent.cmp.js';
 import emailDraffted from './apps/mail/cmps/email-draffted.cmp.js';
 import keepApp from './apps/keep/pages/keep-app.cmp.js';
-// import about from './pages/about.cmp.js'
-// import bookDetails from './pages/book-details.cmp.js'
-// import reviewAdd from './cmps/review-add.cmp.js'
-// import bookAdd from './pages/book-add.cmp.js'
+import bookApp from './apps/book/pages/book-app.cmp.js'
+import bookDetails from './apps/book/pages/book-details.cmp.js';
+import bookAdd from './apps/book/pages/book-add.cmp.js';
+import reviewAdd from './apps/book/cmps/review-add.cmp.js';
 
 
 const routes = [
@@ -45,13 +45,24 @@ const routes = [
         path: '/keep/',
         component: keepApp
     },
-
-
-    // {
-    //     path: '/book',
-    //     component: bookApp
-    // },
-
+    {
+        path: '/book',
+        component: bookApp,
+        children: [
+            {
+                path: '/book/:bookId',
+                component: bookDetails
+            },
+            {
+                path: '/book/add',
+                component: bookAdd
+            },
+            {
+                path: '/book/:bookId/review-add',
+                component: reviewAdd
+            },
+        ]
+    },
 ]
 
 export const myRouter = new VueRouter({ routes })
