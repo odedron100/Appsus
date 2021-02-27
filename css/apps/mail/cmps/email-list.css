@@ -64,3 +64,12 @@
 .open{
     background-color: #cbcbcbcc;
 }
+
+@media screen and (max-width:780px){
+    .main-content-list{
+        width: 100%;
+    }
+    .list-items{
+        padding: 0;
+    }
+}

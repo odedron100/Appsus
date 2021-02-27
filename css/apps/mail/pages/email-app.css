@@ -35,3 +35,10 @@
     display: none;
     transition: display .3s;
 }
+
+
+@media screen and (max-width:780px){
+    .email-app{
+        flex-direction: column;
+    }
+}

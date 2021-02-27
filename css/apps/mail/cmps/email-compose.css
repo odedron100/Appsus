@@ -77,3 +77,14 @@
     font-size: 1.4rem;
     cursor: pointer;
 }
+
+@media screen and (max-width:780px){
+    .email-compose{
+        width: 100%;
+        left: 0;
+        top: 15%;
+    }
+    .email-btn .send-btn{
+        font-size: 0.7rem;
+    }
+}
