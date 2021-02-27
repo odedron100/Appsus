@@ -10,7 +10,7 @@ export default {
   template: `
     <ul class="keep-list" >
       <li  class="note-preview-container">
-          <component :is="activeComponent" :note="note" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"></component>
+          <component :is="activeComponent" :note="note" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor" @editTitle="editTitle"></component>
       </li>
     </ul>
         `,
@@ -31,6 +31,9 @@ export default {
     },
     pinNote(note) {
       this.$emit('pinNote', note);
+    },
+    editTitle(note) {
+      this.$emit('editTitle', note);
     },
     toggleTodo(todo) {
       this.$emit('toggleTodo', { idx: todo.idx, note: todo.note })

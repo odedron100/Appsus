@@ -24,8 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 105%;
-  margin-bottom: 7px;
+  width: 100%;
+  margin-bottom: 3px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: -1px 2px 3px 2px rgb(32 33 36 / 28%);
@@ -55,6 +55,12 @@
 .note .edit{
   position: absolute;
   top: 5px;
+  right: 5px;
+}
+
+.note .edit-title{
+  position: absolute;
+  top: 24px;
   right: 5px;
 }
 

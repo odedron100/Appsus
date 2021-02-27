@@ -16,13 +16,13 @@ export default {
                     <h1 class="pinned-list-title"> pinned notes </h1>
                     <div class="keep-pinned-list-content">
                         <div v-for="note in pinnedNotesToShow" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor" @editTitle="editTitle"/>
                         </div>
                     </div>
                     <h1 class="list-title"> notes </h1>
                     <div class="keep-list-content">
                         <div v-for="note in notesToShow" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor" @editTitle="editTitle"/>
                         </div>
                     </div>
                 </section>
@@ -91,6 +91,29 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
+        editTitle(note) {
+            Swal.mixin({
+                input: 'text',
+                confirmButtonText: 'Next',
+                // showCancelButton: true,
+                progressSteps: ['1']
+            }).queue([
+                {
+                    title: 'new title',
+                    text: 'Enter your new title'
+                },
+            ]).then((result) => {
+                if (result.value) {
+                    note.title = result.value[0];
+                    keepService.editNote(note)
+                        .then(() => this.loadNotes())
+                    Swal.fire({
+                        title: 'Saved!',
+                        confirmButtonText: 'Ok!'
+                    })
+                }
+            })
+        },
         editNote(note) {
             //make swall alert with 3 input according to the type
             console.log('editing note', note);
@@ -98,22 +121,16 @@ export default {
                 case 'text':
                     Swal.mixin({
                         input: 'text',
-                        confirmButtonText: 'Next',
                         showCancelButton: true,
-                        progressSteps: ['1', '2']
+                        progressSteps: ['1']
                     }).queue([
-                        {
-                            title: 'new title',
-                            text: 'Enter your new title'
-                        },
                         {
                             title: 'new text',
                             text: 'Enter your new Text'
                         }
                     ]).then((result) => {
                         if (result.value) {
-                            note.title = result.value[0];
-                            note.info.text = result.value[1];
+                            note.info.text = result.value[0];
                             keepService.editNote(note)
                                 .then(() => this.loadNotes())
                             Swal.fire({
@@ -128,20 +145,15 @@ export default {
                         input: 'text',
                         confirmButtonText: 'Next',
                         showCancelButton: true,
-                        progressSteps: ['1', '2']
+                        progressSteps: ['1']
                     }).queue([
-                        {
-                            title: 'new title',
-                            text: 'Enter your new title'
-                        },
                         {
                             title: 'new image url',
                             text: 'Enter your new Image Url'
                         }
                     ]).then((result) => {
                         if (result.value) {
-                            note.info.title = result.value[0];
-                            note.info.imgURL = result.value[1];
+                            note.info.imgURL = result.value[0];
                             keepService.editNote(note)
                                 .then(() => this.loadNotes())
                             Swal.fire({
@@ -154,22 +166,16 @@ export default {
                 case 'video':
                     Swal.mixin({
                         input: 'text',
-                        confirmButtonText: 'Next',
                         showCancelButton: true,
-                        progressSteps: ['1', '2']
+                        progressSteps: ['1']
                     }).queue([
-                        {
-                            title: 'new title',
-                            text: 'Enter your new title'
-                        },
                         {
                             title: 'new Video url',
                             text: 'Enter your new Video src'
                         }
                     ]).then((result) => {
                         if (result.value) {
-                            note.info.title = result.value[0];
-                            note.info.videoSRC = result.value[1];
+                            note.info.videoSRC = result.value[0];
                             keepService.editNote(note)
                                 .then(() => this.loadsNotes())
                             Swal.fire({
@@ -182,22 +188,16 @@ export default {
                 case 'todos':
                     Swal.mixin({
                         input: 'text',
-                        confirmButtonText: 'Next',
                         showCancelButton: true,
-                        progressSteps: ['1', '2']
+                        progressSteps: ['1']
                     }).queue([
-                        {
-                            title: 'new title',
-                            text: 'Enter your new title'
-                        },
                         {
                             title: 'Create new todos',
                             text: 'Enter your todos'
                         }
                     ]).then((result) => {
                         if (result.value) {
-                            note.info.title = result.value[0];
-                            let todos = result.value[1].split(',');
+                            let todos = result.value[0].split(',');
                             note.info.todos = [];
                             todos.forEach((todo, idx) => {
                                 note.info.todos.push({ text: todo, isDone: false });

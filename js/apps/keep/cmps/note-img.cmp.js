@@ -5,6 +5,7 @@ export default {
       <section class="note" v-bind:style="{ background:note.style.backgroundColor}" @click="select">
         <div class="note-title-container" @click="select">
           <div><h2>{{note.title}}</h2></div>
+          <div class="edit-title" @click="editTitle"><i class="fas fa-pencil-alt"></i></div>
         </div>
         <div class="note-body" v-bind:style="{ background:note.style.backgroundColor,backgroundImage: 'url(' + note.info.imgURL + ')'}">
           <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
@@ -22,6 +23,9 @@ export default {
     },
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    editTitle() {
+      this.$emit('editTitle', this.note);
     },
     pinNote() {
       this.$emit('pinNote', this.note);
