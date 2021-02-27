@@ -7,8 +7,9 @@
   width: 100%;
   list-style: none;
   text-align: center;
+  padding: 10px;
 }
 
 .toggle-todo{
-  background-color: red;
+  text-decoration: line-through;
 }
