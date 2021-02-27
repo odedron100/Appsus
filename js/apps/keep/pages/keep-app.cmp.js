@@ -16,13 +16,13 @@ export default {
                     <h1 class="pinned-list-title"> pinned notes </h1>
                     <div class="keep-pinned-list-content">
                         <div v-for="note in pinnedNotes" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"/>
                         </div>
                     </div>
                     <h1 class="list-title"> notes </h1>
                     <div class="keep-list-content">
                         <div v-for="note in notesToShow" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"/>
                         </div>
                     </div>
                 </section>
@@ -74,6 +74,10 @@ export default {
                     Swal.fire('Cancelled', 'Your file is still intact', 'info')
                 }
             })
+        },
+        changeNoteColor(changeColor) {
+            keepService.changeNoteColor(changeColor.note, changeColor.color);
+            this.loadNotes()
         },
         pinNote(note) {
             keepService.pinNoteInList(note.id);

@@ -11,7 +11,7 @@ export default {
         <div>
           <long-text class="text" :desc="note.info.text" />
         </div>
-        <input type="color" class="input-color" value="note.style.backgroundColor" >
+        <input type="color" class="input-color" v-model="newColor" @change="changeNoteColor">
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
         <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
       </div>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       noteToEdit: this.note,
+      newColor: this.note.style.backgroundColor
     }
   },
   methods: {
@@ -34,6 +35,9 @@ export default {
     },
     pinNote() {
       this.$emit('pinNote', this.note);
+    },
+    changeNoteColor() {
+      this.$emit('changeNoteColor', { note: this.note, color: this.newColor });
     }
   },
   components: {

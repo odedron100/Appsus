@@ -48,7 +48,8 @@ export const keepService = {
   removeNote,
   editNote,
   pinNoteInList,
-  toggleTodo
+  toggleTodo,
+  changeNoteColor
 }
 
 function query() {
@@ -113,6 +114,19 @@ function toggleTodo(todo) {
       note.info.todos[todo.idx].isDone = !note.info.todos[todo.idx].isDone;
     }
     notesToOverride.push(note);
+  });
+  utilService.saveToStorage(NOTES_KEY, notesToOverride)
+}
+
+function changeNoteColor(note, newColor) {
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  let notesToOverride = [];
+  notes.forEach(notefromStorage => {
+    if (notefromStorage.id === note.id) {
+      notefromStorage.style.backgroundColor = newColor;
+    }
+    console.log('notefromStorage', notefromStorage);
+    notesToOverride.push(notefromStorage);
   });
   utilService.saveToStorage(NOTES_KEY, notesToOverride)
 }
