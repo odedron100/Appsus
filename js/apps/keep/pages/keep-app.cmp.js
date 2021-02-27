@@ -22,7 +22,7 @@ export default {
                     <h1 class="list-title"> notes </h1>
                     <div class="keep-list-content">
                         <div v-for="note in notesToShow" class="keep-note-list">
-                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote"/>
+                            <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo"/>
                         </div>
                     </div>
                 </section>
@@ -77,6 +77,10 @@ export default {
         },
         pinNote(note) {
             keepService.pinNoteInList(note.id);
+            this.loadNotes()
+        },
+        toggleTodo(todo) {
+            keepService.toggleTodo(todo);
             this.loadNotes()
         },
         setFilter(filterBy) {
@@ -189,9 +193,9 @@ export default {
                         if (result.value) {
                             note.info.title = result.value[0];
                             let todos = result.value[1].split(',');
-                            note.info.todos = {};
+                            note.info.todos = [];
                             todos.forEach((todo, idx) => {
-                                note.info.todos[`todo${idx}`] = todo;
+                                note.info.todos.push({ text: todo, isDone: false });
                             });
                             keepService.editNote(note)
                                 .then(() => this.loadNotes())

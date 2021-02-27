@@ -1,5 +1,5 @@
 
-import noteAudio from '../cmps/note-audio.cmp.js';
+// import noteAudio from '../cmps/note-audio.cmp.js';
 import noteImg from '../cmps/note-img.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import noteText from '../cmps/note-text.cmp.js';
@@ -10,7 +10,7 @@ export default {
   template: `
     <ul class="keep-list" >
       <li  class="note-preview-container">
-          <component :is="activeComponent" :note="note" @remove="remove" @editNote="editNote" @pinNote="pinNote"></component>
+          <component :is="activeComponent" :note="note" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo"></component>
       </li>
     </ul>
         `,
@@ -31,10 +31,13 @@ export default {
     },
     pinNote(note) {
       this.$emit('pinNote', note);
+    },
+    toggleTodo(todo) {
+      this.$emit('toggleTodo', { idx: todo.idx, note: todo.note })
     }
   },
   components: {
-    noteAudio,
+    // noteAudio,
     noteImg,
     noteTodos,
     noteText,

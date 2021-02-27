@@ -47,7 +47,8 @@ export const keepService = {
   createNewNote,
   removeNote,
   editNote,
-  pinNoteInList
+  pinNoteInList,
+  toggleTodo
 }
 
 function query() {
@@ -93,7 +94,7 @@ function getEmptyNote(note) {
 }
 
 function createTodos(todos) {
-  console.log('todos', todos);
+  if (!todos) return null;
   let todosArr = todos.split(',')
   let newTodos = [];
   todosArr.forEach(todo => {
@@ -102,6 +103,18 @@ function createTodos(todos) {
     )
   });
   return newTodos;
+}
+
+function toggleTodo(todo) {
+  let notes = utilService.loadFromStorage(NOTES_KEY);
+  let notesToOverride = [];
+  notes.forEach(note => {
+    if (note.id === todo.note.id) {
+      // note.info.todos[todo[idx].isDone] = !note.info.todos[todo[idx].isDone];
+    }
+    notesToOverride.push(note);
+  });
+  utilService.saveToStorage(NOTES_KEY, notesToOverride)
 }
 
 function editNote(note) {

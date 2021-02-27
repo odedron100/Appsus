@@ -8,6 +8,8 @@
   border-bottom: 3px solid #ccc;
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
+  justify-content: center;
 }
 
 .pinned-list-title{
@@ -30,76 +32,28 @@
   height: 350px;
 }
 
-/* .note{
-  background-color: rgb(218, 228, 228);
-  border: 1px solid black;
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  background-position: center;
-  background-size: 100%;
-  transition: background-size 0.2s ease-in-out, opacity 0.2s ease-in-out,transform 0.3s ease-in-out ;
-  opacity: 0.7;
-  box-shadow: -1px 2px 3px 2px rgb(32 33 36 / 28%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-repeat: no-repeat, repeat;
-  background-position: center;
-  background-size: cover;
-}
+@media (max-width : 830px ){
+  .keep-list-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px 10px;
+  }
 
-.note-body{
-  position: static;
-  /* background-color: rgb(218, 228, 228);
-  border: 1px solid black;
-  width: 100%;
-  height: 200px;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  background-position: center;
-  background-size: 100%;
-  transition: background-size 0.2s ease-in-out, opacity 0.2s ease-in-out,transform 0.3s ease-in-out ;
-  opacity: 0.7;
-  box-shadow: -1px 2px 3px 2px rgb(32 33 36 / 28%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-repeat: no-repeat, repeat;
-  background-position: center;
-  background-size: cover; */
-  /* width: 100%;
-  height: 200px;
-}
+  .keep-pinned-list-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px 10px;
+  }
 
-.note .trash{
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-}
+  .keep-note-list{
+    width: 100%;
+    height: 350px;
+  }
 
-.note .edit{
-  position: absolute;
-  top: 5px;
-  right: 5px;
+  .keep-list{
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    margin: auto;
+  }
 }
-
-.note:hover{
-  transform: scale(1.05);
-}
-
-.note .input-color{
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width:20px;
-  height: 20px;
-  cursor: pointer;
-} */

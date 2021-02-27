@@ -10,7 +10,7 @@ export default {
         <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
         <ul class="todos-container">
           <li class="todo" v-for="(todo, idx) in note.info.todos" :key=idx>
-              <span @click="toggleTodo(idx)">{{todo.text}}</span>
+              <span @click="toggleTodo(idx)" :class="{'toggle-todo':todo.isDone}" >{{todo.text}}</span>
           </li>
         </ul>
         <input type="color" class="input-color" value="note.style.backgroundColor" >
@@ -19,6 +19,10 @@ export default {
       </div >
     </section>
   `,
+  data() {
+    return {
+    }
+  },
   methods: {
     select() {
       this.$emit('selected', this.note);
@@ -33,8 +37,10 @@ export default {
       this.$emit('pinNote', this.note);
     },
     toggleTodo(idx) {
-      //need to implement toggle todo
-      console.log(idx);
+      this.$emit('toggleTodo', { idx: idx, note: this.note })
     }
+  },
+  created() {
+    console.log('this.note.info.todos', this.note.info.todos[0].isDone);
   }
 }

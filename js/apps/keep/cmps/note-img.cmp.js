@@ -8,7 +8,6 @@ export default {
         </div>
         <div class="note-body" v-bind:style="{ background:note.style.backgroundColor,backgroundImage: 'url(' + note.info.imgURL + ')'}">
           <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
-          <div>title:<h4>{{note.title}}</h4></div>
           <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
           <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
         </div>

@@ -1,4 +1,4 @@
-import noteAudio from '../cmps/note-audio.cmp.js';
+// import noteAudio from '../cmps/note-audio.cmp.js';
 import noteImg from '../cmps/note-img.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import noteText from '../cmps/note-text.cmp.js';
@@ -17,9 +17,9 @@ export default {
           <input type="text" class="note-input" name="image-url" placeholder="Enter img URL..." v-if="newNote.type === 'img'" v-model="newNote.imgURL" @focus="renderTitleInput"/>
           <input type="text" class="note-input" name="video-src" placeholder="Enter video SRC..." v-if="newNote.type === 'video'" v-model="newNote.videoSRC" @focus="renderTitleInput"/>
           <input type="color" class="color-input" name="color" v-model="newNote.color" v-if="isColorSelected === true"/>
-          <input type="text" class="note-input" name="todos" placeholder="Your todos title..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
+          <input type="text" class="note-input" name="todos" placeholder="Your todos(Separate with a comma)..." v-if="newNote.type === 'todos'" v-model="newNote.todos" @focus="renderTitleInput"/>
           <div class="notes-types">
-            <div class="note-audio type" @click="changeType('audio')"><i class="fas fa-volume-up"></i></div>
+            <!-- <div class="note-audio type" @click="changeType('audio')"><i class="fas fa-volume-up"></i></div> -->
             <div class="note-video type" @click="changeType('video')"><i class="fas fa-video"></i></div>
             <div class="note-img type" @click="changeType('img')"><i class="far fa-image"></i></div>
             <div class="note-text type" @click="changeType('text')"><i class="fas fa-font"></i></div>
@@ -78,7 +78,7 @@ export default {
     }
   },
   components: {
-    noteAudio,
+    // noteAudio,
     noteImg,
     noteTodos,
     noteText,

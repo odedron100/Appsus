@@ -23,3 +23,12 @@
 .keep-app-header .input-search:focus{
   box-shadow: 0 1px 6px 0 rgb(0 0 0 / 60%);
 }
+
+@media (max-width : 830px ){
+  .keep-app-header .input-search{
+    width: 80%;
+  }
+  .keep-app-header{
+    margin-inline-start: 13px;
+  }
+}

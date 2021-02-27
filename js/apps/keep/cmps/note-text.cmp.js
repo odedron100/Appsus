@@ -1,4 +1,4 @@
-
+import longText from '../cmps/long-text.cmp.js';
 export default {
   props: ['note'],
   template: `
@@ -8,7 +8,9 @@ export default {
       </div>
       <div class="note-body" v-bind:style="{ background:note.style.backgroundColor}">
         <div class="edit" @click="editNote"><i class="fas fa-pencil-alt"></i></div>
-        <div><h4>{{note.info.text}}</h4></div>
+        <div>
+          <long-text class="text" :desc="note.info.text" />
+        </div>
         <input type="color" class="input-color" value="note.style.backgroundColor" >
         <div class="trash" @click="removeNote"><i class="fas fa-trash-alt"></i></div>
         <div class="pin" @click="pinNote"><i class="fas fa-thumbtack"></i></div>
@@ -34,4 +36,7 @@ export default {
       this.$emit('pinNote', this.note);
     }
   },
+  components: {
+    longText
+  }
 }
