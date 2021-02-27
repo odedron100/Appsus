@@ -35,6 +35,7 @@ export default {
   methods: {
     switchRoute() {
       this.currRoute = this.$route.path.substring(7, this.$route.path.length)
+      this.openNav();
       this.getFocusRoute();
     },
     getFocusRoute() {
