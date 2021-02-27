@@ -15,7 +15,7 @@ export default {
                     <keepNewCommit @add="addNote" />
                     <h1 class="pinned-list-title"> pinned notes </h1>
                     <div class="keep-pinned-list-content">
-                        <div v-for="note in pinnedNotes" class="keep-note-list">
+                        <div v-for="note in pinnedNotesToShow" class="keep-note-list">
                             <keep-list :note="note" @selected="selected" @remove="remove" @editNote="editNote" @pinNote="pinNote" @toggleTodo="toggleTodo" @changeNoteColor="changeNoteColor"/>
                         </div>
                     </div>
@@ -226,6 +226,16 @@ export default {
                     return (note.title.toLowerCase().includes(searchStr) && !note.pin)
                 })
                 return notesToShow
+            }
+        },
+        pinnedNotesToShow() {
+            if (!this.filterBy && this.notes) return this.notes.filter(note => note.pin);
+            if (this.filterBy) {
+                const searchStr = this.filterBy.toLowerCase()
+                const pinnedNotesToShow = this.notes.filter(note => {
+                    return (note.title.toLowerCase().includes(searchStr) && note.pin)
+                })
+                return pinnedNotesToShow
             }
         },
         pinnedNotes() {
