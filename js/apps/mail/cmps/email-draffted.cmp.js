@@ -39,7 +39,7 @@ export default {
         showPreview(email) {
             email.isRead = true;
             email.isPreview = !email.isPreview;
-        }
+        },
     },
     computed: {
 

@@ -37,8 +37,9 @@
 }
 
 .details-sent{
+    width: 10rem;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
@@ -49,6 +50,11 @@
 
 .details-sent .desc-sent{
     color: black;
+}
+
+.name-sent{
+    width: 4rem;
+    text-align: left;
 }
 
 .read{
