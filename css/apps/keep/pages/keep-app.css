@@ -1,16 +1,16 @@
-@import '../cmps/helpers.css';
-@import '../cmps/keep-header.css';
-@import '../cmps/keep-new-commit.css';
-@import '../cmps/list.css';
-@import '../cmps/note-audio.css';
-@import '../cmps/note-img.css';
-@import '../cmps/note-map.css';
-@import '../cmps/note-todos.css';
-@import '../cmps/note-text.css';
-@import '../cmps/note-video.css';
+@import '..cmps/helpers.css';
+@import '..cmps/keep-header.css';
+@import '..cmps/keep-new-commit.css';
+@import '..cmps/list.css';
+@import '..cmps/note-audio.css';
+@import '..cmps/note-img.css';
+@import '..cmps/note-map.css';
+@import '..cmps/note-todos.css';
+@import '..cmps/note-text.css';
+@import '..cmps/note-video.css';
 /* @import '../cmps/note-preview.css'; */
-@import '../cmps/keep-filter.css';
-@import '../cmps/note.css';
+@import '..cmps/keep-filter.css';
+@import '..cmps/note.css';
 
 *{
   font-family: 'Quicksand', sans-serif;

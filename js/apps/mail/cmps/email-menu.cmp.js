@@ -18,7 +18,7 @@ export default {
               </div>
               <div class="drafftes" :class="{focus:isDraftted}">
                     <router-link to="/email/draftted" @click.native="switchRoute"><span><i class="fab fa-firstdraft"></i></span>  <span>Drafts</span></router-link>
-              </div> 
+              </div>
           </aside>
         </div>
     `,
@@ -77,4 +77,3 @@ export default {
     emailCompose
   }
 }
-
