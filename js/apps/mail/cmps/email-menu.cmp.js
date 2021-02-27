@@ -5,7 +5,7 @@ export default {
           <button class="nav-icon" @click="openNav"><i class="fas fa-bars"></i></button>
           <aside class="main-menu" :class="{ 'open-nav-bar': isOpen }">
               <div class="new-email">
-                <router-link to="/email/compose" class="new-email-btn"><img src="../../../img/compose.png"/><span>Compose</span></router-link>
+                <router-link to="/email/compose" class="new-email-btn"><img src="./img/compose.png"/><span>Compose</span></router-link>
               </div>
               <div class="inbox" :class="{focus:isInbox}">
                     <router-link to="/email/inbox" @click.native="switchRoute"><span><i class="fas fa-inbox"></i></span>  <span>Inbox</span></router-link>
