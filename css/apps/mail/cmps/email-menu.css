@@ -1,6 +1,7 @@
 /* MAIN MENU */
 
 .main-menu{
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +35,7 @@
     border-radius: 30px;
     border: 1px solid lightgray;
     height: 80%;
-    width: 70%;
+    width: 90%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,4 +58,37 @@
 
 .focus{
     background-color: rgba(235, 165, 175, 0.817);
+}
+
+.nav-icon{
+    display: none;
+    background-color: white;
+    border: none;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width:780px){
+    .main-menu{
+        display: none;
+    }
+    .nav-icon{
+        display: block;
+    }
+    /* TODO ADD NAVBAR */
+    .open-nav-bar{
+            display: flex;
+            position: absolute;
+            background-color: white;
+            width: 100%;
+    }
+    .main-menu .new-email {
+        width: 50%;
+        margin: 1rem auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .new-email-btn{
+        width: 30%;
+    }
 }

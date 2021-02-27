@@ -28,7 +28,7 @@ export default {
                         <long-text class="desc-sent" :desc="email.body" />
                         </div>
                         <div class="time-sent">
-                        <h4 @click.stop="setSort('time')">{{getTime}}</h4>
+                        <h4 @click.stop="setSort('time')">{{getTime(email.sentAt)}}</h4>
                     </div>
                     </div>
                 </li>
@@ -81,7 +81,11 @@ export default {
         setSort(sortBy) {
             console.log('sortBy', sortBy);
             this.sortBy = sortBy;
-        }
+        },
+        getTime(time) {
+            var timeSent = new Date(time);
+            return `${timeSent.getHours()}:${timeSent.getMinutes()}`
+        },
         // togglePreviewColor() {
         //     this.isOpen = !this.isOpen
         // }
@@ -94,9 +98,6 @@ export default {
                 return email.name.toLowerCase().includes(searchStr)
             })
             return emailsToShow
-        },
-        getTime() {
-            return `${new Date().getHours()}:${new Date().getMinutes()}`
         },
     },
     created() {

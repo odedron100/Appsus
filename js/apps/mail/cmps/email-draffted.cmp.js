@@ -1,5 +1,6 @@
 import { emailService } from '../services/email.service.js';
 import emailPreview from './email-preview.cmp.js';
+import emailCompose from './email-compose.cmp.js';
 
 export default {
     template: `
@@ -9,6 +10,9 @@ export default {
                 <li v-for="email in drafts" :key="email.id" class="list-item" @click="showPreview(email)">
                     <email-preview  v-if="email.isPreview" :email="email"/>
                     <div  class="email-short" :class={read:!email.isRead} >
+                        <div class="icons">
+                                <router-link to="/email/compose" class="new-email-btn"><span><i class="far fa-edit"></i></span></router-link>
+                        </div>
                         <div class="name-sent">
                         <h4>{{email.name}}</h4>
                         </div>
@@ -18,7 +22,7 @@ export default {
                         <span class="desc-sent">{{email.body}}</span>
                         </div>
                         <div class="time-sent">
-                        <h4>{{email.sentAt}}</h4>
+                        <h4>{{getTime(email.sentAt)}}</h4>
                     </div>
                     </div>
                 </li>
@@ -40,6 +44,10 @@ export default {
             email.isRead = true;
             email.isPreview = !email.isPreview;
         },
+        getTime(time) {
+            var timeSent = new Date(time);
+            return `${timeSent.getHours()}:${timeSent.getMinutes()}`
+        },
     },
     computed: {
 
@@ -48,6 +56,7 @@ export default {
         this.loadDrafts();
     },
     components: {
-        emailPreview
+        emailPreview,
+        emailCompose
     }
 }

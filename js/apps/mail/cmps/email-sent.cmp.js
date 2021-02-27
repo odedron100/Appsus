@@ -19,7 +19,7 @@ export default {
                         <long-text class="desc-sent" :desc="email.body" />
                         </div>
                         <div class="time-sent">
-                        <h4>{{email.sentAt}}</h4>
+                        <h4>{{getTime(email.sentAt)}}</h4>
                     </div>
                     </div>
                 </li>
@@ -40,7 +40,11 @@ export default {
         showPreview(email) {
             email.isRead = true;
             email.isPreview = !email.isPreview;
-        }
+        },
+        getTime(time) {
+            var timeSent = new Date(time);
+            return `${timeSent.getHours()}:${timeSent.getMinutes()}`
+        },
     },
     computed: {
 
