@@ -1,0 +1,165 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    height: 100vh;
+   
+}
+
+.app-main{
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    display: inline-block;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/* HEADER */
+
+.app-header{
+    font-size: 2rem;
+    padding: 0 10% ;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav a{
+    color: rgb(19, 17, 17);
+    font-size: 1.3rem;
+    transition: font-size .5s;
+}
+
+nav a:hover{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* HOME  */
+
+.home{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 1px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 50%;
+    height: 20%;
+    padding: 20px;
+    font-size: 4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+/* APP */
+
+.book-app{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 2rem;
+    min-height: 100vh;
+}
+
+
+/* LIST */
+
+.book-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* PREVIEW */
+
+
+.book-preview-container{
+    width: 150px;
+    height: 150px;
+    font-size: 1.4rem;
+    background-color: rgb(235, 225, 210);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.book-preview-container p,span{
+    color: black;
+
+}
+
+.book-preview{
+    height: 100%;
+}
+
+/* DETAILS */
+
+.book-details{
+    background-color: lightgoldenrodyellow;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    color: black;
+    align-items: center;
+}
+
+.book-details img{
+    width: 13%;
+}
+
+.book-details button{
+    align-self: flex-start;
+}
+
+.book-details h3[name="price"].red{
+    color: red;
+}
+
+.book-details h3[name="price"].green{
+    color: green;
+}
+
+.book-app a{
+    float:right;
+    color:black;
+    text-decoration: underline;
+    margin: 1rem;
+}
+
+
+@media screen and (max-width:680px){
+    .book-filter{
+        display: flex;
+        width: 100%;
+        padding: 0;
+    }
+
+    .book-filter label:not(:first-child){
+        display: none;
+    }
+}
+

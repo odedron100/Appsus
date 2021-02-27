@@ -16,6 +16,10 @@ export default {
                 <img src="../../../img/keep.png" />
                 <router-link to="/keep">Keep</router-link>
             </div>
+            <div class="nav-item">
+            <img src="../../../img/book.png" />
+            <router-link to="/book">Book</router-link>
+        </div>
        </div>
     </section>
     `
